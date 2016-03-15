@@ -1,0 +1,23 @@
+{
+  "name": "vbc_package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darragjm/vasenbrewing.git"
+  },
+  "author": "Joey Darragh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darragjm/vasenbrewing/issues"
+  },
+  "homepage": "https://github.com/darragjm/vasenbrewing#readme"
+}

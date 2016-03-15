@@ -2,84 +2,119 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>V&auml;sen Brewing Company</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
-	<script type="text/javascript" src="js/mobile.js"></script>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">    
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-	<div id="body">
-		<div id="splash" class="container">
-			<div>
-                <img src="img/vasen_seal_250px.png" alt="">
-			</div>
-		</div>
-        <div id="header_container">
-            <div id="header">
-                <img src="img/vasen_logo.png" alt="">
-            </div>
-        <div id="story" class="container">
-            <div class="inner">
-                <div class="header">
-                    <h1>Our Story</h1>
-                </div>
-                <div class="copy">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum. Aenean dolor ipsum, dictum quis felis vel, vestibulum hendrerit tellus. Duis pellentesque tristique justo ut ornare. In sed enim ac nisl placerat tristique. Sed gravida tortor sapien, vitae egestas nunc euismod aliquet. Ut eget tincidunt magna. Suspendisse et arcu dictum, vehicula nulla vel, viverra eros.</p>
+    <div class="container-fluid">
 
-                    <p>Vestibulum ac porta libero. Ut lacinia neque metus, id aliquam eros tristique eu. Phasellus sollicitudin, neque auctor venenatis sollicitudin, justo metus ullamcorper diam, ut sodales odio arcu id leo. Duis fringilla, arcu convallis imperdiet feugiat, mi turpis volutpat libero, eu molestie ex orci ac ante. Nam pulvinar nisi dictum quam venenatis, ac consequat ipsum maximus. Pellentesque tempor placerat sem, at ornare felis tincidunt a. Aenean fermentum, nisl tincidunt fermentum molestie, metus odio pellentesque nisl, at vestibulum dolor risus ut justo. Sed lobortis nunc odio, ac aliquam ligula dapibus sit amet. Aenean tristique convallis quam non facilisis. Aenean ultricies velit vel magna sodales fringilla. Fusce molestie risus vitae ipsum lobortis, vitae pharetra dolor congue. Nunc bibendum sed nulla a auctor. Fusce erat ex, interdum at tempus id, commodo a nibh. Nunc dignissim, lacus ullamcorper hendrerit egestas, augue libero commodo tellus, porta luctus elit mi vitae nulla.</p>
-
-                    <p>Donec porta ligula id tempor lobortis. Vestibulum risus nunc, blandit et aliquam id, viverra ut risus. Pellentesque in justo eget diam elementum hendrerit ut vel diam. Aliquam a sollicitudin risus, eu efficitur tellus. Quisque iaculis, leo non laoreet imperdiet, massa neque auctor sapien, lacinia viverra purus diam id lectus. Nullam vehicula urna id turpis pellentesque vestibulum. Ut placerat elit lacus, eget finibus dolor consectetur faucibus.</p>
+        <div class="row featurette static-bg" id="splash">
+            <div id="seal-container">
+                <div class="seal">
+                    <img src="img/vasen_seal_250px.png" alt="">
                 </div>
             </div>
         </div>
-        <div id="bio" class="container">
-            <div class="inner">
-                <ul>
-                    <li>
-                        <a href="gallery.html">
-                            <img src="img/joey.jpg" width="250" height="250" alt="">
+
+
+        
+          <div class="row featurette static-bg" id="story">
+              <div class="col-md-4">
+                  <div class="text-shadow-box">
+                      <h2 class="featurette-heading">Our story.</h2>
+                      <p class="lead">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
+                  </div>
+            </div>
+            <div class="col-md-8">
+                <div style="padding: 30px;">
+                    <img class="featurette-image img-responsive center-block" src="./img/team.jpg" alt="">
+                </div>
+            </div>
+          </div>
+    
+
+        <div class="row featurette static-bg" id="bios">
+            <div class="col-md-7">
+                <div id="bio-container">
+                    <img class="img-responsive bio-portrait" src="./img/joey.jpg" alt="Joey Darragh">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="text-shadow-box">
+                    <h2 class="featurette-heading">Our team.</h2>
+                    <div class="list-group bio-list">
+                        <a href="#" class="list-group-item" id="joey">
+                            <h3>Joey Darragh</h3>
+                            <p class="bio-title">Co-Founder/President</p>
                         </a>
-                    </li>
-                    <li>
-                        <a href="gallery.html">
-                            <img src="img/tony.jpg" width="250" height="250" alt="">
+                        <a href="" class="list-group-item" id="tony">
+                            <h3>Tony Giordano</h3>
+                            <p class="bio-title">Co-Founder/Brewmaster</p>
                         </a>
-                    </li>
-                    <li>
-                        <a href="gallery.html">
-                            <img src="img/nate.jpg" width="250" height="250" alt="">
+                        <a href="" class="list-group-item" id="nathan">
+                            <h3>Nathan Winters</h3>
+                            <p class="bio-title">Marketing and Environmental Programs</p>
                         </a>
-                    </li>
-                    <li>
-                        <a href="gallery.html">
-                            <img src="img/jon.jpg" width="250" height="250" alt="">
+                        <a href="" class="list-group-item" id="jon">
+                            <h3>Jon Warner, PhD</h3>
+                            <p class="bio-title">Head Brewery Scientist</p>
                         </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="row" style="padding-top: 25px;">
+        <div class="col-xs-6">
+            <div class="text-right">
+                <address>
+                  <strong>Väsen Brewing Company</strong><br>
+                  3331 W Moore St<br>
+                  Richmond, VA 23230<br>
+                </address>
             </div>
         </div>
+        <div class="col-xs-6">
+            <div class="text-left">
+                Facebook<br>
+                Instagram<br>
+                Twitter<br>
+            </div>
         </div>
-	</div>
-	<div id="footer">
-		<div>
-			<p>&copy; 2016 by Vasen Brewing Company, LLC. All rights reserved.</p>
-			<ul>
-				<li>
-					<a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
-				</li>
-				<li>
-					<a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a>
-				</li>
-				<li>
-					<a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">googleplus</a>
-				</li>
-				<li>
-					<a href="http://pinterest.com/fwtemplates/" id="pinterest">pinterest</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+    </div>
+    
+    <script>
+        $(window).scroll(function(){
+            height = $(window).height();
+
+            if ($(this).scrollTop() > height) {
+              $('#logo-container').addClass('fixed');
+            } else {
+              $('#logo-container').removeClass('fixed');
+            }
+        });
+        
+        var update_bio = function () {
+            var bio = '<img class="img-responsive" src="img/' + $(this).attr('id') + '.jpg">';
+            $(document).find('.list-group-item').removeClass('active');
+            $(this).addClass('active');
+            $('#bio-container').html(bio);
+            return false;
+        }
+        
+        $(function(){
+            $(".list-group-item")
+                .hover(update_bio)
+                .click(update_bio);
+        });
+    </script>
 </body>
 </html>
 
