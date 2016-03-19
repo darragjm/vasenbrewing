@@ -16,23 +16,34 @@
         <div class="row static-bg" id="splash">
             <div id="seal-container">
                 <div class="seal">
-                    <img src="img/vasen_seal_250px.png" alt="">
+                    <img class="img-responsive" src="img/vasen_seal.png" alt="">
                 </div>
             </div>
         </div>
-
-
+        
+        <div class="row" id="header">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6 text-center" id="logo">
+                <img src="img/vasen_logo.png" alt="">
+            </div>
+            <div class="col-xs-3 text-right" id="social">
+                <img src="img/facebook.png">
+                <img src="img/instagram.png">
+                <img src="img/twitter.png">
+            </div>
+        </div>
         
           <div class="row static-bg" id="story">
               <div class="col-md-4">
-                  <div class="text-shadow-box">
-                      <h2 class="featurette-heading">Our story.</h2>
-                      <p class="lead">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
+                  <div class="section-text-container-left">
+                      <h2 class="section-heading">OUR STORY</h2>
+                      <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
+                      <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
                   </div>
             </div>
             <div class="col-md-8">
-                <div style="padding: 30px;">
-                    <img class="featurette-image img-responsive center-block" src="./img/team.jpg" alt="">
+                <div class="section-main-container">
+                    <img class="section-image img-responsive center-block" src="./img/team.jpg" alt="">
                 </div>
             </div>
           </div>
@@ -51,7 +62,7 @@
             </div>
             <div class="col-xs-5">
                 <div class="text-shadow-box">
-                    <h2 class="featurette-heading">Our team.</h2>
+                    <h2 class="section-heading">OUR TEAM</h2>
                     <div class="list-group bio-list">
                         <a href="#" class="list-group-item" id="joey">
                             <h3>Joey Darragh</h3>
@@ -95,15 +106,20 @@
     </div>
     
     <script>
-        $(window).scroll(function(){
+        var fix_header = function(){
             height = $(window).height();
 
             if ($(this).scrollTop() > height) {
-              $('#logo-container').addClass('fixed');
+                $('#header').addClass('fixed');
+                $('#story').addClass('section-offset');
             } else {
-              $('#logo-container').removeClass('fixed');
+                $('#header').removeClass('fixed');
+                $('#story').removeClass('section-offset');
             }
-        });
+        }
+        
+        $( window ).scroll(fix_header)
+                   .resize(fix_header);
         
         var bios = {
             'joey': "<h3>Joey Darragh<br><small>Co-Founder/President</small></h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.",
@@ -114,7 +130,7 @@
         
         var update_bio = function () {
             var bio_name = $(this).attr('id')
-            var bio_pic = '<img class="img-responsive" src="img/' + bio_name + '.jpg">';
+            var bio_pic = '<img class="img-responsive" src="img/team_' + bio_name + '.jpg">';
             $(document).find('.list-group-item').removeClass('active');
             $(this).addClass('active');
             $('.bio-portrait').html(bio_pic);
@@ -126,6 +142,10 @@
             $(".list-group-item")
                 .hover(update_bio)
                 .click(update_bio);
+        });
+        
+        $( document ).ready(function() {
+            $('#joey').mouseenter();
         });
     </script>
 </body>

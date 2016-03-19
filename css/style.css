@@ -1,3 +1,48 @@
+@font-face {
+  font-family: 'CoreCircus';
+  src: url('../font/core-circus/CoreCircus.eot'); /* IE9 Compat Modes */
+  src: url('../font/core-circus/CoreCircus.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/core-circus/CoreCircus.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/core-circus/CoreCircus.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../font/raleway/Raleway-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../font/raleway/Raleway-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/raleway/Raleway-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/raleway/Raleway-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+#header {
+    background-image: url(../img/bg_header.jpg);
+    background-position: center center;
+    height: 140px;
+}
+
+#header #logo {
+    margin-top: 32px;
+}
+
+#header #social {
+    margin-top: 58px;
+}
+
+#header #social img {
+    margin-right: 7px;
+}
+
 .static-bg {
     background-size: cover;
     background-position: center center;
@@ -18,44 +63,48 @@
     transform: translate(-50%,-50%);
 }
 
-.text-shadow-box {
-    background-color: #111111;
-    opacity: 0.7;
-    padding: 20px;
-    margin: 0 30px 0 30px;
+.section-text-container-left {
+    padding: 0 3% 0 3%;
+    color: white;
 }
 
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
+.section-text-container-right {
+    margin: 0 3% 0 0;
+    color: white;
+}
+
+.section-main-container {
+    padding: 3%;
+}
+
+.section-heading {
+    font-family: 'CoreCircus', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #e05953;
+}
+
+.section-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+}
+
+.section-offset {
+    margin-top: 140px;
 }
 
 #story {
-/*    height: 100vh;*/
-/*    display: block;*/
-/*    height: 100%;*/
-/*    min-height: 400px;*/
-    background-image: url(../img/forest_mist.jpg);  
-}
-
-#logo-container {
-    position: absolute;
-}
-
-.fixed {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: 100;
-    border-top: 0;
+    background-image: url(../img/forest_mist.jpg);
+    min-height: calc(100vh - 140px);
 }
 
 #bios {
-/*    height: 100vh;*/
-/*    min-height: 400px;*/
-    background-image: url(../img/bg_tile.jpg);
+    background-image: url(../img/bg_wood_panels.jpg);
+    background-size: auto;
+    background-repeat: repeat;
+    min-height: calc(100vh - 140px);
 }
 
 .bio-list {
@@ -64,19 +113,19 @@
 }
 
 a.list-group-item {
-    color: #fdfdfd;
+    color: black;
     background-color: inherit;
-    border: 0; /** Global overwrite! */
+    border: 0; /* Global overwrite! */
 }
 
 a.list-group-item:first-child {
-    border-top-left-radius: 0; /** Global overwrite! */
-    border-top-right-radius: 0; /** Global overwrite! */
+    border-top-left-radius: 0; /* Global overwrite! */
+    border-top-right-radius: 0; /* Global overwrite! */
 }
 
 a.list-group-item:last-child {
-    border-bottom-left-radius: 0; /** Global overwrite! */
-    border-bottom-right-radius: 0; /** Global overwrite! */
+    border-bottom-left-radius: 0; /* Global overwrite! */
+    border-bottom-right-radius: 0; /* Global overwrite! */
 }
 
 a.list-group-item.active, a.list-group-item.active:hover {
@@ -100,18 +149,29 @@ a.list-group-item.active, a.list-group-item.active:hover {
     
 }
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
+/* RESPONSIVE CSS--------------------------------------------------------------- */
 
 @media (min-width: 768px) {
-  .featurette-heading {
-    font-size: 50px;
-  }
+    .section-heading {
+        font-size: 30px;
+    }
 }
 
 
 @media (min-width: 992px) {
-  .featurette-heading {
-    margin-top: 120px;
-  }
+    .section-main-container {
+        padding: 50px;
+    }
+
+    .section-text-container-left {
+        margin: 0 0 0 20%;
+    }
+    
+    .section-text-container-right {
+        margin: 0 20% 0 0;
+    }
+    
+    .section-heading {
+        margin-top: 100px;
+    }
 }
