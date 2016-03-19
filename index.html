@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">    
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="node_modules/instafeed.js/instafeed.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -76,10 +77,10 @@
             </div>
             <div class="col-md-8 col-md-pull-4">
                 <div class="row section-main-container" id="bio-container">
-                    <div class="col-xs-7 bio-portrait">
+                    <div class="col-sm-7 bio-portrait">
                         Bio Portrait
                     </div>
-                    <div class="col-xs-5 bio-text section-text">
+                    <div class="col-sm-5 bio-text section-text">
                         <h3><span id="bio-name">Name</span><br><small class="bio-title"><span id="bio-position">Position</span></small></h3>
                         <p id="bio-bio">Bio</p>
                     </div>
@@ -88,22 +89,35 @@
         </div>
     </div>
 
-    <div class="row" style="padding-top: 25px;">
-        <div class="col-xs-6">
-            <div class="text-right">
-                <address>
-                  <strong>Väsen Brewing Company</strong><br>
-                  3331 W Moore St<br>
-                  Richmond, VA 23230<br>
-                </address>
-            </div>
+    <div class="row" id="contact">
+        <div class="col-xs-12 text-center" id="banner">
+            <span class="contact-banner">Coming to RVA in Late 2016</span>
         </div>
-        <div class="col-xs-6">
-            <div class="text-left">
-                Facebook<br>
-                Instagram<br>
-                Twitter<br>
-            </div>
+        <div class="col-md-4" id="instafeed-container">
+            <div class="contact-heading">Instagram</div>
+            <div id="instafeed"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="contact-heading">Get In Touch</div>
+        </div>
+        <div class="col-md-4">
+            <div class="contact-heading">Where to Find Us</div>
+            <address>
+              <strong>Väsen Brewing Company</strong><br>
+              3331 W Moore St<br>
+              Richmond, VA 23230<br>
+            </address>
+        </div>
+    </div>
+    
+    <div class="row" id="footer">
+        <div class="col-xs-12 text-center" id="footer-social">
+            <img src="img/facebook.png">
+            <img src="img/instagram.png">
+            <img src="img/twitter.png">
+        </div>
+        <div class="col-xs-12 text-center" id="footer-address">
+            Väsen Brewing Company / 3331 W Moore St / Richmond, VA 23230
         </div>
     </div>
     
@@ -169,6 +183,15 @@
         
         $( document ).ready(function() {
             $('#joey').mouseenter();
+            
+            var feed = new Instafeed({
+                get: 'user',
+                userId: 2533712132,
+                accessToken: '2533712132.21213d0.fa6d5675be04485686d53eaaacaaa0af',
+                sortBy: 'most-recent',
+                template: '<a href="{{link}}"><img src="{{image}}" height=100 width=100 /></a>'
+            });
+            feed.run();
         });
     </script>
 </body>

@@ -108,7 +108,7 @@ body {
     background-image: url(../img/bg_wood_panels.jpg);
     background-size: auto;
     background-repeat: repeat;
-    min-height: 75vh;
+    min-height: calc(100vh - 140px);
 }
 
 .bio-list {
@@ -146,12 +146,62 @@ a.list-group-item.active, a.list-group-item.active:hover {
     display: inherit;
 }
 
+#bio-container {
+
+}
+
 .bio-portrait {
-/*    padding: 10% 5% 10% 0;*/
+
 }
 
 .bio-text {
-/*    padding: 10% 0 10% 0;*/
+
+}
+
+#contact {
+    background-color: #141414;
+    min-height: 60vh;
+    padding: 0 3% 0 3%;
+}
+
+#contact #banner {
+
+}
+
+.contact-banner {
+    font-family: 'CoreCircus', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 2;
+    letter-spacing: -1px;
+    color: #d5d5d5;
+}
+
+.contact-heading {
+    font-family: 'CoreCircus', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 2;
+    letter-spacing: -1px;
+    color: #e05953;
+}
+
+#instafeed {
+    max-height: 400px;
+    overflow: auto;
+}
+
+
+#footer {
+    background-color: #484848;
+    color: white;
+    min-height: 80px;
+    padding: 25px;
+}
+
+#footer-address {
+    margin-top: 15px;
+    font-size: 10px;
 }
 
 /* RESPONSIVE CSS--------------------------------------------------------------- */
