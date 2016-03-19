@@ -16,55 +16,46 @@
         <div class="row static-bg" id="splash">
             <div id="seal-container">
                 <div class="seal">
-                    <img class="img-responsive" src="img/vasen_seal.png" alt="">
+                    <img src="img/vasen_seal.png" alt="">
                 </div>
             </div>
         </div>
         
         <div class="row" id="header">
-            <div class="col-xs-3"></div>
-            <div class="col-xs-6 text-center" id="logo">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8 text-center" id="logo">
                 <img src="img/vasen_logo.png" alt="">
             </div>
-            <div class="col-xs-3 text-right" id="social">
+            <div class="col-xs-2 text-right" id="social">
                 <img src="img/facebook.png">
                 <img src="img/instagram.png">
                 <img src="img/twitter.png">
             </div>
         </div>
         
-          <div class="row static-bg" id="story">
-              <div class="col-md-4">
+        <div class="row" id="spacer"></div>
+        
+        <div class="row static-bg" id="story">
+              <div class="col-lg-4">
                   <div class="section-text-container-left">
-                      <h2 class="section-heading">OUR STORY</h2>
+                      <div class="section-heading">OUR STORY</div>
                       <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
                       <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
                   </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div class="section-main-container">
                     <img class="section-image img-responsive center-block" src="./img/team.jpg" alt="">
                 </div>
             </div>
-          </div>
-    
+        </div>
 
         <div class="row static-bg" id="bios">
-            <div class="col-xs-7">
-                <div class="row" id="bio-container">
-                    <div class="col-md-7 bio-portrait">
-                        Bio Portrait
-                    </div>
-                    <div class="col-md-5 bio-text">
-                        Bio Text
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-5">
-                <div class="text-shadow-box">
-                    <h2 class="section-heading">OUR TEAM</h2>
-                    <div class="list-group bio-list">
-                        <a href="#" class="list-group-item" id="joey">
+            <div class="col-md-4 col-md-push-8">
+                <div class="section-text-container-right">
+                    <div class="section-heading">OUR TEAM</div>
+                    <div class="list-group" id="bio-list">
+                        <a href="" class="list-group-item" id="joey">
                             <h3>Joey Darragh</h3>
                             <p class="bio-title">Co-Founder/President</p>
                         </a>
@@ -83,7 +74,18 @@
                     </div>
                 </div>
             </div>
-      </div>
+            <div class="col-md-8 col-md-pull-4">
+                <div class="row section-main-container" id="bio-container">
+                    <div class="col-xs-7 bio-portrait">
+                        Bio Portrait
+                    </div>
+                    <div class="col-xs-5 bio-text section-text">
+                        <h3><span id="bio-name">Name</span><br><small class="bio-title"><span id="bio-position">Position</span></small></h3>
+                        <p id="bio-bio">Bio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row" style="padding-top: 25px;">
@@ -111,30 +113,51 @@
 
             if ($(this).scrollTop() > height) {
                 $('#header').addClass('fixed');
-                $('#story').addClass('section-offset');
+                $('#spacer').addClass('section-offset');
             } else {
                 $('#header').removeClass('fixed');
-                $('#story').removeClass('section-offset');
+                $('#spacer').removeClass('section-offset');
             }
         }
         
         $( window ).scroll(fix_header)
                    .resize(fix_header);
         
+        var bio_filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum."
+        
         var bios = {
-            'joey': "<h3>Joey Darragh<br><small>Co-Founder/President</small></h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.",
-            'tony': "<h3>Tony Giordano<br><small>Co-Founder/Brewmaster</small></h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.",
-            'nathan': "<h3>Nathan Winters<br><small>Marketing and Environmental Programs</small></h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.",
-            'jon': "<h3>Jon Warner<br><small>Head Brewery Scientist</small></h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum."
+            'name': {
+                'joey': 'Joey Darragh',
+                'tony': 'Tony Giordano',
+                'nathan': 'Nathan Winters',
+                'jon': 'Jon Warner, PhD'
+            },
+            'position': {
+                'joey': 'Co-Founder/President',
+                'tony': 'Co-Founder/Brewmaster',
+                'nathan': 'Marketing & Environmental Programs',
+                'jon': 'Head Brewery Scientist'
+            },
+            'bio': {
+                'joey': bio_filler,
+                'tony': bio_filler,
+                'nathan': bio_filler,
+                'jon': bio_filler
+            }
         }
         
         var update_bio = function () {
             var bio_name = $(this).attr('id')
             var bio_pic = '<img class="img-responsive" src="img/team_' + bio_name + '.jpg">';
+
             $(document).find('.list-group-item').removeClass('active');
             $(this).addClass('active');
+            
             $('.bio-portrait').html(bio_pic);
-            $('.bio-text').html(bios[bio_name]);
+            
+            $('#bio-name').html(bios['name'][bio_name]);
+            $('#bio-position').html(bios['position'][bio_name]);
+            $('#bio-bio').html(bios['bio'][bio_name]);
             return false;
         }
         

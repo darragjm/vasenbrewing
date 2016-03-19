@@ -32,11 +32,14 @@ body {
 }
 
 #header #logo {
-    margin-top: 32px;
+    top: 50%;
+    transform: translate(0%, -50%);
 }
 
 #header #social {
-    margin-top: 58px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    display: inherit;
 }
 
 #header #social img {
@@ -64,26 +67,27 @@ body {
 }
 
 .section-text-container-left {
-    padding: 0 3% 0 3%;
+    padding: 0 20% 0 20%;
     color: white;
 }
 
 .section-text-container-right {
-    margin: 0 3% 0 0;
+    margin: 0 20% 20% 0;
     color: white;
 }
 
 .section-main-container {
-    padding: 3%;
+    margin: 10% 3% 10% 3%;
 }
 
 .section-heading {
     font-family: 'CoreCircus', sans-serif;
     font-weight: 300;
     font-size: 30px;
-    line-height: 1;
+    line-height: 2;
     letter-spacing: -1px;
     color: #e05953;
+    margin-top: 100px;
 }
 
 .section-text {
@@ -92,19 +96,19 @@ body {
 }
 
 .section-offset {
-    margin-top: 140px;
+    height: 140px;
 }
 
 #story {
     background-image: url(../img/forest_mist.jpg);
-    min-height: calc(100vh - 140px);
+    min-height: 60vh;
 }
 
 #bios {
     background-image: url(../img/bg_wood_panels.jpg);
     background-size: auto;
     background-repeat: repeat;
-    min-height: calc(100vh - 140px);
+    min-height: 75vh;
 }
 
 .bio-list {
@@ -134,44 +138,88 @@ a.list-group-item.active, a.list-group-item.active:hover {
 }
 
 .bio-title {
+    text-transform: uppercase;
     color: salmon;
 }
 
-#bio-container {
-    margin: 30px 0px 20px 20px;
+#bio-list {
+    display: inherit;
 }
 
 .bio-portrait {
-    
+/*    padding: 10% 5% 10% 0;*/
 }
 
 .bio-text {
-    
+/*    padding: 10% 0 10% 0;*/
 }
 
 /* RESPONSIVE CSS--------------------------------------------------------------- */
 
-@media (min-width: 768px) {
-    .section-heading {
-        font-size: 30px;
+@media (max-width: 525px) {
+    #header {
+        height: 80px;
+    }
+    
+    .section-offset {
+        height: 80px;
+    }
+    
+    #story {
+        min-height: calc(100vh - 80px);
+    }
+    
+    #bios {
+        min-height: calc(100vh - 80px);
     }
 }
 
+@media (max-width: 768px) {
+    #header #social {
+        display: none;
+    }
+}
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
     .section-main-container {
-        padding: 50px;
+        margin: 3%;
     }
 
     .section-text-container-left {
-        margin: 0 0 0 20%;
+        padding: 0;
+        margin: 0 3% 0 3%;
     }
     
     .section-text-container-right {
-        margin: 0 20% 0 0;
+        padding: 0;
+        margin: 0 3% 0 3%;
     }
     
     .section-heading {
-        margin-top: 100px;
+        margin-top: 30px;
+    }
+    
+    #bio-list {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .section-main-container {
+        margin: 3%;
+    }
+
+    .section-text-container-left {
+        padding: 0;
+        margin: 0 3% 0 3%;
+    }
+    
+    .section-text-container-right {
+        padding: 0;
+        margin: 0 3% 0 3%;
+    }
+    
+    .section-heading {
+        margin-top: 30px;
     }
 }
