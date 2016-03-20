@@ -67,7 +67,7 @@ body {
 }
 
 .section-text-container-left {
-    padding: 0 20% 0 20%;
+    padding: 0 10% 0 20%;
     color: white;
 }
 
@@ -101,14 +101,14 @@ body {
 
 #story {
     background-image: url(../img/forest_mist.jpg);
-    min-height: 60vh;
+    min-height: 715px;
 }
 
 #bios {
     background-image: url(../img/bg_wood_panels.jpg);
     background-size: auto;
     background-repeat: repeat;
-    min-height: calc(100vh - 140px);
+    min-height: 815px;
 }
 
 .bio-list {
@@ -160,7 +160,7 @@ a.list-group-item.active, a.list-group-item.active:hover {
 
 #contact {
     background-color: #141414;
-    min-height: 60vh;
+    min-height: 600px;
     padding: 0 3% 0 3%;
 }
 
@@ -172,7 +172,7 @@ a.list-group-item.active, a.list-group-item.active:hover {
     font-family: 'CoreCircus', sans-serif;
     font-weight: 300;
     font-size: 40px;
-    line-height: 2;
+    line-height: 3;
     letter-spacing: -1px;
     color: #d5d5d5;
 }
@@ -180,7 +180,7 @@ a.list-group-item.active, a.list-group-item.active:hover {
 .contact-heading {
     font-family: 'CoreCircus', sans-serif;
     font-weight: 300;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 2;
     letter-spacing: -1px;
     color: #e05953;
@@ -191,6 +191,9 @@ a.list-group-item.active, a.list-group-item.active:hover {
     overflow: auto;
 }
 
+#contact-map {
+    height: 350px;
+}
 
 #footer {
     background-color: #484848;
@@ -203,6 +206,9 @@ a.list-group-item.active, a.list-group-item.active:hover {
     margin-top: 15px;
     font-size: 10px;
 }
+#footer-social img {
+    margin-right: 7px;
+}
 
 /* RESPONSIVE CSS--------------------------------------------------------------- */
 
@@ -213,14 +219,6 @@ a.list-group-item.active, a.list-group-item.active:hover {
     
     .section-offset {
         height: 80px;
-    }
-    
-    #story {
-        min-height: calc(100vh - 80px);
-    }
-    
-    #bios {
-        min-height: calc(100vh - 80px);
     }
 }
 
@@ -255,21 +253,11 @@ a.list-group-item.active, a.list-group-item.active:hover {
 }
 
 @media (max-width: 1200px) {
-    .section-main-container {
-        margin: 3%;
-    }
-
-    .section-text-container-left {
-        padding: 0;
-        margin: 0 3% 0 3%;
+    #story {
+        min-height: 600px;
     }
     
-    .section-text-container-right {
-        padding: 0;
-        margin: 0 3% 0 3%;
-    }
-    
-    .section-heading {
-        margin-top: 30px;
+    #bios {
+        min-height: 600px;
     }
 }

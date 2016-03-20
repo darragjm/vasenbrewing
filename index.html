@@ -37,14 +37,14 @@
         <div class="row" id="spacer"></div>
         
         <div class="row static-bg" id="story">
-              <div class="col-lg-4">
+              <div class="col-lg-4 col-md-5">
                   <div class="section-text-container-left">
                       <div class="section-heading">OUR STORY</div>
                       <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
                       <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
                   </div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-md-7">
                 <div class="section-main-container">
                     <img class="section-image img-responsive center-block" src="./img/team.jpg" alt="">
                 </div>
@@ -101,12 +101,49 @@
             <div class="contact-heading">Get In Touch</div>
         </div>
         <div class="col-md-4">
-            <div class="contact-heading">Where to Find Us</div>
-            <address>
-              <strong>Väsen Brewing Company</strong><br>
-              3331 W Moore St<br>
-              Richmond, VA 23230<br>
-            </address>
+            <div id="contact-maps-container">
+                <div class="contact-heading">Where to Find Us</div>
+                <div class="col-md-12 col-xs-6">
+                    <div id="contact-map"></div>
+                    <script>
+                        function initMap() {
+                            var myLatLng = {lat: 37.570138, lng: -77.472666};
+                            
+                            var map = new google.maps.Map(document.getElementById('contact-map'), {
+                                center: myLatLng,
+                                zoom: 14
+                            });
+                            
+                            var styles = [
+                              {
+                                featureType: "all",
+                                stylers: [
+                                  { saturation: -77 }
+                                ]
+                              }
+                            ];
+                            
+                            map.setOptions({styles: styles});
+                            
+                            var image = '/img/map_marker.png';
+                            var marker = new google.maps.Marker({
+                                position: myLatLng,
+                                map: map,
+                                title: 'Väsen Brewing Company',
+                                icon: image,
+                            });
+                        };
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap"
+                    async defer></script>
+                </div>
+                <div class="col-md-12 col-xs-6">
+                    <address>
+                      3331 W Moore St<br>
+                      Richmond, VA 23230<br>
+                    </address>
+                </div>
+            </div>
         </div>
     </div>
     
