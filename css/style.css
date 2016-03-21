@@ -6,14 +6,6 @@
        url('../font/core-circus/CoreCircus.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
-@font-face {
-  font-family: 'Raleway';
-  src: url('../font/raleway/Raleway-Regular.eot'); /* IE9 Compat Modes */
-  src: url('../font/raleway/Raleway-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../font/raleway/Raleway-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../font/raleway/Raleway-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
-}
-
 body {
     font-family: 'Raleway', sans-serif;
 }
@@ -83,7 +75,7 @@ body {
 .section-heading {
     font-family: 'CoreCircus', sans-serif;
     font-weight: 300;
-    font-size: 30px;
+    font-size: 34px;
     line-height: 2;
     letter-spacing: -1px;
     color: #e05953;
@@ -116,46 +108,80 @@ body {
     margin-top: 40px;
 }
 
-a.list-group-item {
-    color: black;
+.list-group-item {
     background-color: inherit;
     border: 0; /* Global overwrite! */
 }
 
-a.list-group-item:first-child {
+.list-group-item:first-child {
     border-top-left-radius: 0; /* Global overwrite! */
     border-top-right-radius: 0; /* Global overwrite! */
 }
 
-a.list-group-item:last-child {
+.list-group-item:last-child {
     border-bottom-left-radius: 0; /* Global overwrite! */
     border-bottom-right-radius: 0; /* Global overwrite! */
 }
 
-a.list-group-item.active, a.list-group-item.active:hover {
-    background-color: red;
+.list-group-item.active {
+    background-color: #584f46;
+}
+
+.list-group-item.active:hover {
+    background-color: #584f46;
+}
+
+.list-group-item.active .bio-position {
     color: white;
 }
 
-.bio-title {
-    text-transform: uppercase;
-    color: salmon;
+.list-group-item .bio-position {
+    margin-top: -12px;
 }
 
 #bio-list {
     display: inherit;
 }
 
-#bio-container {
+.bio-container-dynamic {
+    display: inherit;
+}
 
+.bio-container-static {
+    display: none;
+    margin-bottom: 30px;
+}
+
+.bio-container {
+    background: #584f46;
+}
+
+.bio-portrait-container {
+    padding: 0px;
 }
 
 .bio-portrait {
+    text-align: center;
+    vertical-align: middle;
+}
 
+.bio-name {
+    font-weight: bold;
+}
+
+.bio-position {
+    font-weight: bolder;
+    color: #b79879;
+    text-transform: uppercase;
 }
 
 .bio-text {
+    margin-top: 30px;
+    color: white;
+}
 
+.bio-bio {
+    margin-top: 35px;
 }
 
 #contact {
@@ -249,6 +275,14 @@ a.list-group-item.active, a.list-group-item.active:hover {
     
     #bio-list {
         display: none;
+    }
+    
+    .bio-container-dynamic {
+        display: none;
+    }
+
+    .bio-container-static {
+        display: inherit;
     }
 }
 

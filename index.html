@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>V&auml;sen Brewing Company</title>
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,800' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">    
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="node_modules/instafeed.js/instafeed.min.js"></script>
+    <script type="text/javascript" src="node_modules/readmore-js/readmore.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -57,109 +59,118 @@
                     <div class="section-heading">OUR TEAM</div>
                     <div class="list-group" id="bio-list">
                         <a href="" class="list-group-item" id="joey">
-                            <h3>Joey Darragh</h3>
-                            <p class="bio-title">Co-Founder/President</p>
+                            <p class="bio-name">Joey Darragh</p>
+                            <p class="bio-position"><small>Co-Founder/President</small></p>
                         </a>
                         <a href="" class="list-group-item" id="tony">
-                            <h3>Tony Giordano</h3>
-                            <p class="bio-title">Co-Founder/Brewmaster</p>
+                            <p class="bio-name">Tony Giordano</p>
+                            <p class="bio-position"><small>Co-Founder/Brewmaster</small></p>
                         </a>
                         <a href="" class="list-group-item" id="nathan">
-                            <h3>Nathan Winters</h3>
-                            <p class="bio-title">Marketing and Environmental Programs</p>
+                            <p class="bio-name">Nathan Winters</p>
+                            <p class="bio-position"><small>Marketing and Environmental Programs</small></p>
                         </a>
                         <a href="" class="list-group-item" id="jon">
-                            <h3>Jon Warner, PhD</h3>
-                            <p class="bio-title">Head Brewery Scientist</p>
+                            <p class="bio-name">Jon Warner, PhD</p>
+                            <p class="bio-position"><small>Head Brewery Scientist</small></p>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 col-md-pull-4">
-                <div class="row section-main-container" id="bio-container">
-                    <div class="col-sm-7 bio-portrait">
-                        Bio Portrait
-                    </div>
-                    <div class="col-sm-5 bio-text section-text">
-                        <h3><span id="bio-name">Name</span><br><small class="bio-title"><span id="bio-position">Position</span></small></h3>
-                        <p id="bio-bio">Bio</p>
+                <div class="row section-main-container ">
+                    <div class="row bio-container bio-container-dynamic">
+                        <div class="col-sm-7 bio-portrait-container">
+                            <div class="bio-portrait">
+                                Bio Portrait
+                            </div>
+                        </div>
+                        <div class="col-sm-5 bio-text section-text">
+                            <h2>
+                                <span class="bio-name">Name</span>
+                            </h2>
+                            <h5>
+                                <span class="bio-position">Position</span>
+                            </h5>
+                            <p class="bio-bio">Bio</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row" id="contact">
-        <div class="col-xs-12 text-center" id="banner">
-            <span class="contact-banner">Coming to RVA in Late 2016</span>
-        </div>
-        <div class="col-md-4" id="instafeed-container">
-            <div class="contact-heading">Instagram</div>
-            <div id="instafeed"></div>
-        </div>
-        <div class="col-md-4">
-            <div class="contact-heading">Get In Touch</div>
-        </div>
-        <div class="col-md-4">
-            <div id="contact-maps-container">
-                <div class="contact-heading">Where to Find Us</div>
-                <div class="col-md-12 col-xs-6">
-                    <div id="contact-map"></div>
-                    <script>
-                        function initMap() {
-                            var myLatLng = {lat: 37.570138, lng: -77.472666};
-                            
-                            var map = new google.maps.Map(document.getElementById('contact-map'), {
-                                center: myLatLng,
-                                zoom: 14
-                            });
-                            
-                            var styles = [
-                              {
-                                featureType: "all",
-                                stylers: [
-                                  { saturation: -77 }
-                                ]
-                              }
-                            ];
-                            
-                            map.setOptions({styles: styles});
-                            
-                            var image = '/img/map_marker.png';
-                            var marker = new google.maps.Marker({
-                                position: myLatLng,
-                                map: map,
-                                title: 'Väsen Brewing Company',
-                                icon: image,
-                            });
-                        };
-                    </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap"
-                    async defer></script>
-                </div>
-                <div class="col-md-12 col-xs-6">
-                    <address>
-                      3331 W Moore St<br>
-                      Richmond, VA 23230<br>
-                    </address>
+        <div class="row" id="contact">
+            <div class="col-xs-12 text-center" id="banner">
+                <span class="contact-banner">Coming to RVA in Late 2016</span>
+            </div>
+            <div class="col-md-4" id="instafeed-container">
+                <div class="contact-heading">Instagram</div>
+                <div id="instafeed"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-heading">Get In Touch</div>
+            </div>
+            <div class="col-md-4">
+                <div id="contact-maps-container">
+                    <div class="contact-heading">Where to Find Us</div>
+                    <div class="col-md-12 col-sm-6 col-xs-12">
+                        <div id="contact-map"></div>
+                        <script>
+                            function initMap() {
+                                var myLatLng = {lat: 37.570138, lng: -77.472666};
+
+                                var map = new google.maps.Map(document.getElementById('contact-map'), {
+                                    center: myLatLng,
+                                    zoom: 14
+                                });
+
+                                var styles = [
+                                  {
+                                    featureType: "all",
+                                    stylers: [
+                                      { saturation: -77 }
+                                    ]
+                                  }
+                                ];
+
+                                map.setOptions({styles: styles});
+
+                                var image = 'img/map_marker.png';
+                                var marker = new google.maps.Marker({
+                                    position: myLatLng,
+                                    map: map,
+                                    title: 'Väsen Brewing Company',
+                                    icon: image,
+                                });
+                            };
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap"
+                        async defer></script>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <address>
+                          3331 W Moore St<br>
+                          Richmond, VA 23230<br>
+                        </address>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="row" id="footer">
-        <div class="col-xs-12 text-center" id="footer-social">
-            <img src="img/facebook.png">
-            <img src="img/instagram.png">
-            <img src="img/twitter.png">
-        </div>
-        <div class="col-xs-12 text-center" id="footer-address">
-            Väsen Brewing Company / 3331 W Moore St / Richmond, VA 23230
+
+        <div class="row" id="footer">
+            <div class="col-xs-12 text-center" id="footer-social">
+                <img src="img/facebook.png">
+                <img src="img/instagram.png">
+                <img src="img/twitter.png">
+            </div>
+            <div class="col-xs-12 text-center" id="footer-address">
+                Väsen Brewing Company / 3331 W Moore St / Richmond, VA 23230
+            </div>
         </div>
     </div>
     
     <script>
-        var fix_header = function(){
+        var fix_header = function() {
             height = $(window).height();
 
             if ($(this).scrollTop() > height) {
@@ -169,12 +180,23 @@
                 $('#header').removeClass('fixed');
                 $('#spacer').removeClass('section-offset');
             }
+        };
+        
+        var read_more = function() {
+            if ($( window ).width() < 768) {
+                $('.bio-bio').readmore({
+                    collapsedHeight: 40
+                });
+            } else {
+                $('.bio-bio').readmore('destroy');
+            }
         }
         
         $( window ).scroll(fix_header)
-                   .resize(fix_header);
+                   .resize(fix_header)
+                   .resize(read_more);
         
-        var bio_filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum."
+        var bio_filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.";
         
         var bios = {
             'name': {
@@ -195,38 +217,62 @@
                 'nathan': bio_filler,
                 'jon': bio_filler
             }
+        };
+        
+        var create_static_bio = function() {
+            var bio_name = $(this).attr('id');
+            var container_id = 'bio-container-' + bio_name;
+            
+            var new_container = $('.bio-container-dynamic').clone();
+            new_container.attr('id', container_id)
+                         .removeClass('bio-container-dynamic')
+                         .addClass('bio-container-static');
+            
+            $('.bio-container-dynamic').before(new_container);
+            
+            var bio_pic = '<img class="img-responsive" src="img/team_' + bio_name + '.jpg">';
+
+            $('#' + container_id + ' .bio-portrait').html(bio_pic);
+            
+            $('#' + container_id + ' .bio-name').html(bios['name'][bio_name]);
+            $('#' + container_id + ' .bio-position').html(bios['position'][bio_name]);
+            $('#' + container_id + ' .bio-bio').html(bios['bio'][bio_name]);
         }
         
-        var update_bio = function () {
+        var update_dynamic_bio = function() {
             var bio_name = $(this).attr('id')
             var bio_pic = '<img class="img-responsive" src="img/team_' + bio_name + '.jpg">';
 
             $(document).find('.list-group-item').removeClass('active');
             $(this).addClass('active');
             
-            $('.bio-portrait').html(bio_pic);
+            $('.bio-container-dynamic .bio-portrait').html(bio_pic);
             
-            $('#bio-name').html(bios['name'][bio_name]);
-            $('#bio-position').html(bios['position'][bio_name]);
-            $('#bio-bio').html(bios['bio'][bio_name]);
+            $('.bio-container-dynamic .bio-name').html(bios['name'][bio_name]);
+            $('.bio-container-dynamic .bio-position').html(bios['position'][bio_name]);
+            $('.bio-container-dynamic .bio-bio').html(bios['bio'][bio_name]);
+            
             return false;
         }
         
         $(function(){
             $(".list-group-item")
-                .hover(update_bio)
-                .click(update_bio);
+                .hover(update_dynamic_bio)
+                .click(update_dynamic_bio);
         });
         
         $( document ).ready(function() {
-            $('#joey').mouseenter();
+            $(".list-group-item").each(create_static_bio);
+            $("#joey").mouseenter();
+            
+            read_more();
             
             var feed = new Instafeed({
                 get: 'user',
                 userId: 2533712132,
                 accessToken: '2533712132.21213d0.fa6d5675be04485686d53eaaacaaa0af',
                 sortBy: 'most-recent',
-                template: '<a href="{{link}}"><img src="{{image}}" height=100 width=100 /></a>'
+                template: '<a href="{{link}}"><img src="{{image}}" height=95 width=95 /></a>'
             });
             feed.run();
         });
