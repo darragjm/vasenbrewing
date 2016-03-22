@@ -198,6 +198,10 @@ a.list-group-item .bio-position {
     margin-top: 35px;
 }
 
+.bio-bio + [data-readmore-toggle] {
+    color: #232323;
+}
+
 #contact {
     background-image: url(../img/bg_black_texture.jpg);
     min-height: 600px;
@@ -265,6 +269,11 @@ a.list-group-item .bio-position {
     .section-offset {
         height: 80px;
     }
+    
+    .section-text-container-left,
+    .section-text-container-right {
+        min-width: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -317,7 +326,7 @@ a.list-group-item .bio-position {
     }
     
     #bios .decorative-divider {
-        display: none;
+        display: none;  
     }
 }
 
