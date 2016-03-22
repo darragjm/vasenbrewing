@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>V&auml;sen Brewing Company</title>
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700,800' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">    
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="node_modules/instafeed.js/instafeed.min.js"></script>
     <script type="text/javascript" src="node_modules/readmore-js/readmore.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap" async defer></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -44,6 +45,7 @@
                       <div class="section-heading">OUR STORY</div>
                       <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
                       <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
+                      <div class="decorative-divider"><img src="img/hr_hop_cone.png" class="img-responsive center-block"></div>
                   </div>
             </div>
             <div class="col-lg-8 col-md-7">
@@ -68,13 +70,14 @@
                         </a>
                         <a href="" class="list-group-item" id="nathan">
                             <p class="bio-name">Nathan Winters</p>
-                            <p class="bio-position"><small>Marketing and Environmental Programs</small></p>
+                            <p class="bio-position"><small>Marketing & Environmental</small></p>
                         </a>
                         <a href="" class="list-group-item" id="jon">
                             <p class="bio-name">Jon Warner, PhD</p>
                             <p class="bio-position"><small>Head Brewery Scientist</small></p>
                         </a>
                     </div>
+                    <div class="decorative-divider"><img src="img/hr_reindeer.png" class="img-responsive center-block"></div>
                 </div>
             </div>
             <div class="col-md-8 col-md-pull-4">
@@ -99,7 +102,7 @@
             </div>
         </div>
 
-        <div class="row" id="contact">
+        <div class="row static-bg" id="contact">
             <div class="col-xs-12 text-center" id="banner">
                 <span class="contact-banner">Coming to RVA in Late 2016</span>
             </div>
@@ -121,7 +124,8 @@
 
                                 var map = new google.maps.Map(document.getElementById('contact-map'), {
                                     center: myLatLng,
-                                    zoom: 14
+                                    zoom: 14,
+                                    scrollwheel: false,
                                 });
 
                                 var styles = [
@@ -142,10 +146,14 @@
                                     title: 'Väsen Brewing Company',
                                     icon: image,
                                 });
+                                
+                                google.maps.event.addDomListener(window, "resize", function() {
+                                 var center = map.getCenter();
+                                 google.maps.event.trigger(map, "resize");
+                                 map.setCenter(center); 
+                                });
                             };
                         </script>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap"
-                        async defer></script>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <address>
@@ -164,7 +172,7 @@
                 <img src="img/twitter.png">
             </div>
             <div class="col-xs-12 text-center" id="footer-address">
-                Väsen Brewing Company / 3331 W Moore St / Richmond, VA 23230
+                <span class="footer-text">Väsen Brewing Company</span> / <span class="footer-text">3331 W Moore St</span> / <span class="footer-text">Richmond, VA 23230</span>
             </div>
         </div>
     </div>
@@ -182,7 +190,7 @@
             }
         };
         
-        var read_more = function() {
+        var apply_readmore = function() {
             if ($( window ).width() < 768) {
                 $('.bio-bio').readmore({
                     collapsedHeight: 40
@@ -194,7 +202,7 @@
         
         $( window ).scroll(fix_header)
                    .resize(fix_header)
-                   .resize(read_more);
+                   .resize(apply_readmore);
         
         var bio_filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.";
         
@@ -208,7 +216,7 @@
             'position': {
                 'joey': 'Co-Founder/President',
                 'tony': 'Co-Founder/Brewmaster',
-                'nathan': 'Marketing & Environmental Programs',
+                'nathan': 'Marketing & Environmental',
                 'jon': 'Head Brewery Scientist'
             },
             'bio': {
@@ -265,7 +273,7 @@
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
             
-            read_more();
+            apply_readmore();
             
             var feed = new Instafeed({
                 get: 'user',

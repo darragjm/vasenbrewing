@@ -61,11 +61,13 @@ body {
 .section-text-container-left {
     padding: 0 10% 0 20%;
     color: white;
+    min-width: 375px;
 }
 
 .section-text-container-right {
-    margin: 0 20% 20% 0;
+    padding: 0 20% 0 10%;
     color: white;
+    min-width: 375px;
 }
 
 .section-main-container {
@@ -91,8 +93,12 @@ body {
     height: 140px;
 }
 
+.decorative-divider {
+    margin: 30px 0 30px 0;
+}
+
 #story {
-    background-image: url(../img/forest_mist.jpg);
+    background-image: url(../img/bg_black_texture.jpg);
     min-height: 715px;
 }
 
@@ -103,48 +109,53 @@ body {
     min-height: 815px;
 }
 
-.bio-list {
-    list-style-type: none;
-    margin-top: 40px;
+#bio-list {
+    margin-top: 20px;
+    min-width: 300px;
+    display: inherit;
 }
 
-.list-group-item {
-    background-color: inherit;
+a.list-group-item {
+    background-color: transparent;
     border: 0; /* Global overwrite! */
 }
 
-.list-group-item:first-child {
+a.list-group-item:first-child {
     border-top-left-radius: 0; /* Global overwrite! */
     border-top-right-radius: 0; /* Global overwrite! */
 }
 
-.list-group-item:last-child {
+a.list-group-item:last-child {
     border-bottom-left-radius: 0; /* Global overwrite! */
     border-bottom-right-radius: 0; /* Global overwrite! */
 }
 
-.list-group-item.active {
-    background-color: #584f46;
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+    background-color: transparent;
+    background-image: url(../img/bg_team_list.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.list-group-item.active:hover {
-    background-color: #584f46;
+a.list-group-item:focus {
+    background-color: transparent;
 }
 
-.list-group-item.active .bio-position {
+a.list-group-item .bio-name, a.list-group-item .bio-position {
+    padding-left: 10px;
+}
+
+a.list-group-item.active .bio-position {
     color: white;
 }
 
-.list-group-item .bio-position {
+a.list-group-item .bio-position {
     margin-top: -12px;
-}
-
-#bio-list {
-    display: inherit;
 }
 
 .bio-container-dynamic {
     display: inherit;
+    min-width: 720px;
 }
 
 .bio-container-static {
@@ -153,7 +164,9 @@ body {
 }
 
 .bio-container {
-    background: #584f46;
+    background-image: url(../img/bg_team_bio_text.jpg);
+    background-position: right center;
+    background-repeat: repeat-x;
 }
 
 .bio-portrait-container {
@@ -166,17 +179,18 @@ body {
 }
 
 .bio-name {
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .bio-position {
-    font-weight: bolder;
+    font-weight: 700;
     color: #b79879;
     text-transform: uppercase;
 }
 
 .bio-text {
-    margin-top: 30px;
+    margin-top: 10%;
+    padding-bottom: 10px;
     color: white;
 }
 
@@ -185,9 +199,9 @@ body {
 }
 
 #contact {
-    background-color: #141414;
+    background-image: url(../img/bg_black_texture.jpg);
     min-height: 600px;
-    padding: 0 3% 0 3%;
+    padding: 0 3% 30px 3%;
 }
 
 #contact #banner {
@@ -232,8 +246,13 @@ body {
     margin-top: 15px;
     font-size: 10px;
 }
+
 #footer-social img {
     margin-right: 7px;
+}
+
+.footer-text {
+    margin: 0 15px 0 15px;
 }
 
 /* RESPONSIVE CSS--------------------------------------------------------------- */
@@ -251,6 +270,18 @@ body {
 @media (max-width: 768px) {
     #header #social {
         display: none;
+    }
+    
+    .bio-container {
+        background-position: center bottom;
+    }
+    
+    .bio-text {
+        margin-top: 30px;
+    }
+    
+    .bio-bio {
+        margin-top: 10px;
     }
 }
 
@@ -283,6 +314,10 @@ body {
 
     .bio-container-static {
         display: inherit;
+    }
+    
+    #bios .decorative-divider {
+        display: none;
     }
 }
 
