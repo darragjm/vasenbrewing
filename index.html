@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="node_modules/instafeed.js/instafeed.min.js"></script>
     <script type="text/javascript" src="node_modules/readmore-js/readmore.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap" async defer></script>
+    <script type="text/javascript" src="node_modules/validate.jquery.js/dist/validate.jquery.js.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -106,12 +106,25 @@
             <div class="col-xs-12 text-center" id="banner">
                 <span class="contact-banner">Coming to RVA in Late 2016</span>
             </div>
-            <div class="col-md-4" id="instafeed-container">
+            <div class="col-md-4">
                 <div class="contact-heading">Instagram</div>
-                <div id="instafeed"></div>
+                <div id="instafeed-container">
+                    <div id="instafeed"></div>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="contact-heading">Get In Touch</div>
+                <div id="form-container">
+                    <form id="messageForm" method="post" action="mailer.php">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+                <div id="form-messages"></div>
             </div>
             <div class="col-md-4">
                 <div id="contact-maps-container">
@@ -154,6 +167,7 @@
                                 });
                             };
                         </script>
+                        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap" async defer></script>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <address>
@@ -283,6 +297,46 @@
                 template: '<a href="{{link}}"><img src="{{image}}" height=95 width=95 /></a>'
             });
             feed.run();
+            
+            var form = $("#messageForm");
+            var formMessages = $('#form-messages');
+            
+            $(form).validate();
+            
+            $(form).submit(function(event) {
+                event.preventDefault();
+                  
+                var formData = $(form).serialize();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: $(form).attr('action'),
+                    data: formData
+                }).done(function(response) {
+                    // Make sure that the formMessages div has the 'success' class.
+                    $(formMessages).removeClass('error');
+                    $(formMessages).addClass('success');
+
+                    // Set the message text.
+                    $(formMessages).text(response);
+
+                    // Clear the form.
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#message').val('');
+                }).fail(function(data) {
+                    // Make sure that the formMessages div has the 'error' class.
+                    $(formMessages).removeClass('success');
+                    $(formMessages).addClass('error');
+
+                    // Set the message text.
+                    if (data.responseText !== '') {
+                        $(formMessages).text(data.responseText);
+                    } else {
+                        $(formMessages).text('Oops! An error occured and your message could not be sent.');
+                    }
+                });
+            });
         });
     </script>
 </body>

@@ -231,7 +231,7 @@ a.list-group-item .bio-position {
 }
 
 #instafeed {
-    max-height: 400px;
+    max-height: 350px;
     overflow: auto;
 }
 
@@ -326,7 +326,7 @@ a.list-group-item .bio-position {
     }
     
     #bios .decorative-divider {
-        display: none;  
+        display: none;
     }
 }
 
