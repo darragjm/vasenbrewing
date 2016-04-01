@@ -193,9 +193,9 @@
     
     <script>
         var fix_header = function() {
-            height = $(window).height();
+            height = $( window ).height();
 
-            if ($(this).scrollTop() > height) {
+            if ($( window ).scrollTop() > height) {
                 $('#header').addClass('fixed');
                 $('#spacer').addClass('section-offset');
             } else {
@@ -213,10 +213,6 @@
                 $('.bio-bio').readmore('destroy');
             }
         }
-        
-        $( window ).scroll(fix_header)
-                   .resize(fix_header)
-                   .resize(apply_readmore);
         
         var bio_filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.";
         
@@ -284,6 +280,13 @@
         });
         
         $( document ).ready(function() {
+            var windowWidth = $( window ).width();
+            var windowHeight = $( window ).height();
+            
+            $( window ).scroll(fix_header)
+                       .resize(fix_header)
+                       .resize(apply_readmore);
+        
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
             
