@@ -17,15 +17,7 @@
 <body>
     <div class="container-fluid">
 
-        <div class="row static-bg" id="splash">
-            <div id="seal-container">
-                <div class="seal">
-                    <img src="img/vasen_seal.png" alt="">
-                </div>
-            </div>
-        </div>
-        
-        <div class="row" id="header">
+        <div class="row fixed" id="header">
             <div class="col-xs-2"></div>
             <div class="col-xs-8 text-center" id="logo">
                 <img src="img/vasen_logo.png" alt="">
@@ -37,8 +29,18 @@
             </div>
         </div>
         
-        <div class="row" id="spacer"></div>
-        
+        <div class="row static-bg" id="splash">
+            <div id="seal-container">
+                <div class="seal">
+                    <img src="img/vasen_seal.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="container">
+                
         <div class="row static-bg" id="story">
               <div class="col-lg-4 col-md-5">
                   <div class="section-text-container-left">
@@ -192,16 +194,13 @@
     </div>
     
     <script>
-        var fix_header = function() {
-            height = $( window ).height();
+        var fade_header = function() {
+            var st = $( this ).scrollTop();
+            var wh = $( window ).height();
 
-            if ($( window ).scrollTop() > height) {
-                $('#header').addClass('fixed');
-                $('#spacer').addClass('section-offset');
-            } else {
-                $('#header').removeClass('fixed');
-                $('#spacer').removeClass('section-offset');
-            }
+            if (st <= wh) {
+                  $("#header").css({ 'opacity': st/wh });
+            };
         };
         
         var apply_readmore = function() {
@@ -283,8 +282,8 @@
             var windowWidth = $( window ).width();
             var windowHeight = $( window ).height();
             
-            $( window ).scroll(fix_header)
-                       .resize(fix_header)
+            $( window ).scroll(fade_header)
+                       .resize(fade_header)
                        .resize(apply_readmore);
         
             $(".list-group-item").each(create_static_bio);
