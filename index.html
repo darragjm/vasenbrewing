@@ -230,13 +230,19 @@
             });
         };
         
+        var readmore_flag = false;
+        
         var apply_readmore = function() {
             if ($( window ).width() < 768) {
-                $('.bio-bio').readmore({
-                    collapsedHeight: 40
-                });
+                if (readmore_flag != true) {
+                    $('.bio-bio').readmore({
+                        collapsedHeight: 40
+                    });
+                };
+                readmore_flag = true;
             } else {
                 $('.bio-bio').readmore('destroy');
+                readmore_flag = false;
             }
         }
         
