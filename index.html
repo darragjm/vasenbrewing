@@ -23,9 +23,9 @@
                 <img src="img/vasen_logo.png" alt="">
             </div>
             <div class="col-xs-2 text-right" id="social">
-                <img src="img/facebook.png">
-                <img src="img/instagram.png">
-                <img src="img/twitter.png">
+                <a href="http://www.facebook.com/vasenbrewing" target="_blank"><img src="img/facebook.png"></a>
+                <a href="http://www.instagram.com/vasenbrewing" target="_blank"><img src="img/instagram.png"></a>
+                <a href="http://www.twitter.com/vasenbrewing" target="_blank"><img src="img/twitter.png"></a>
             </div>
         </div>
         
@@ -39,18 +39,19 @@
 
     </div>
     
-    <div class="container">
+    <div class="container" id="content-container">
                 
         <div class="row static-bg" id="story">
-              <div class="col-lg-4 col-md-5">
+              <div class="col-lg-4">
                   <div class="section-text-container-left">
                       <div class="section-heading">OUR STORY</div>
                       <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
                       <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
+                      <p class="section-text">Hylla Resan!</p>
                       <div class="decorative-divider"><img src="img/hr_hop_cone.png" class="img-responsive center-block"></div>
                   </div>
             </div>
-            <div class="col-lg-8 col-md-7">
+            <div class="col-lg-8">
                 <div class="section-main-container">
                     <img class="section-image img-responsive center-block" src="./img/team.jpg" alt="">
                 </div>
@@ -58,7 +59,7 @@
         </div>
 
         <div class="row static-bg" id="bios">
-            <div class="col-md-4 col-md-push-8">
+            <div class="col-lg-4 col-lg-push-8">
                 <div class="section-text-container-right">
                     <div class="section-heading">OUR TEAM</div>
                     <div class="list-group" id="bio-list">
@@ -82,22 +83,24 @@
                     <div class="decorative-divider"><img src="img/hr_reindeer.png" class="img-responsive center-block"></div>
                 </div>
             </div>
-            <div class="col-md-8 col-md-pull-4">
-                <div class="row section-main-container ">
-                    <div class="row bio-container bio-container-dynamic">
-                        <div class="col-sm-7 bio-portrait-container">
-                            <div class="bio-portrait">
-                                Bio Portrait
+            <div class="col-lg-8 col-lg-pull-4">
+                <div class="section-main-container">
+                    <div class="bio-container bio-container-dynamic">
+                        <div class="row">
+                            <div class="col-sm-6 bio-portrait-container">
+                                <div class="bio-portrait">
+                                    Bio Portrait
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-5 bio-text section-text">
-                            <h2>
-                                <span class="bio-name">Name</span>
-                            </h2>
-                            <h5>
-                                <span class="bio-position">Position</span>
-                            </h5>
-                            <p class="bio-bio">Bio</p>
+                            <div class="col-sm-6 bio-text section-text">
+                                <h2>
+                                    <span class="bio-name">Name</span>
+                                </h2>
+                                <h5>
+                                    <span class="bio-position">Position</span>
+                                </h5>
+                                <p class="bio-bio">Bio</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +114,7 @@
             <div class="col-md-4">
                 <div class="contact-heading">Instagram</div>
                 <div id="instafeed-container">
-                    <div id="instafeed"></div>
+                    <div class="row" id="instafeed"></div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -129,63 +132,55 @@
                 <div id="form-messages"></div>
             </div>
             <div class="col-md-4">
-                <div id="contact-maps-container">
-                    <div class="contact-heading">Where to Find Us</div>
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                        <div id="contact-map"></div>
-                        <script>
-                            function initMap() {
-                                var myLatLng = {lat: 37.570138, lng: -77.472666};
+                <div class="contact-heading">Where to Find Us</div>
+                <div class="col-md-12 col-sm-6 col-xs-12" id="contact-map-container">
+                    <div id="contact-map"></div>
+                    <script>
+                        function initMap() {
+                            var myLatLng = {lat: 37.570138, lng: -77.472666};
 
-                                var map = new google.maps.Map(document.getElementById('contact-map'), {
-                                    center: myLatLng,
-                                    zoom: 14,
-                                    scrollwheel: false,
-                                });
+                            var map = new google.maps.Map(document.getElementById('contact-map'), {
+                                center: myLatLng,
+                                zoom: 14,
+                                scrollwheel: false,
+                            });
 
-                                var styles = [
-                                  {
-                                    featureType: "all",
-                                    stylers: [
-                                      { saturation: -77 }
-                                    ]
-                                  }
-                                ];
+                            var styles = [
+                              {
+                                featureType: "all",
+                                stylers: [
+                                  { saturation: -77 }
+                                ]
+                              }
+                            ];
 
-                                map.setOptions({styles: styles});
+                            map.setOptions({styles: styles});
 
-                                var image = 'img/map_marker.png';
-                                var marker = new google.maps.Marker({
-                                    position: myLatLng,
-                                    map: map,
-                                    title: 'Väsen Brewing Company',
-                                    icon: image,
-                                });
-                                
-                                google.maps.event.addDomListener(window, "resize", function() {
-                                 var center = map.getCenter();
-                                 google.maps.event.trigger(map, "resize");
-                                 map.setCenter(center); 
-                                });
-                            };
-                        </script>
-                        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap" async defer></script>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <address>
-                          3331 W Moore St<br>
-                          Richmond, VA 23230<br>
-                        </address>
-                    </div>
+                            var image = 'img/map_marker.png';
+                            var marker = new google.maps.Marker({
+                                position: myLatLng,
+                                map: map,
+                                title: 'Väsen Brewing Company',
+                                icon: image,
+                            });
+
+                            google.maps.event.addDomListener(window, "resize", function() {
+                             var center = map.getCenter();
+                             google.maps.event.trigger(map, "resize");
+                             map.setCenter(center); 
+                            });
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtMtIFEWPMB_D74YexiPulTcPUUBNB7E&callback=initMap" async defer></script>
                 </div>
             </div>
         </div>
 
         <div class="row" id="footer">
             <div class="col-xs-12 text-center" id="footer-social">
-                <img src="img/facebook.png">
-                <img src="img/instagram.png">
-                <img src="img/twitter.png">
+                <a href="http://www.facebook.com/vasenbrewing" target="_blank"><img src="img/facebook.png"></a>
+                <a href="http://www.instagram.com/vasenbrewing" target="_blank"><img src="img/instagram.png"></a>
+                <a href="http://www.twitter.com/vasenbrewing" target="_blank"><img src="img/twitter.png"></a>
             </div>
             <div class="col-xs-12 text-center" id="footer-address">
                 <span class="footer-text">Väsen Brewing Company</span> / <span class="footer-text">3331 W Moore St</span> / <span class="footer-text">Richmond, VA 23230</span>
@@ -195,12 +190,44 @@
     
     <script>
         var fade_header = function() {
-            var st = $( this ).scrollTop();
+            var st = $( window ).scrollTop();
             var wh = $( window ).height();
 
-            if (st <= wh) {
-                  $("#header").css({ 'opacity': st/wh });
+            if (st < wh/3) {
+                $("#header").css({ 'opacity': 0, 
+                                   'display': 'none' });
+            } else if (st <= wh) {
+                $("#header").css({ 'opacity': (st - wh/3)/(wh*2/3),
+                                   'display': 'inherit' });
+            } else {
+                $("#header").css({ 'opacity': 1.0,
+                                   'display': 'inherit' });
             };
+        };
+        
+        var fluidize_container = function() {
+            var windowWidth = $( window ).width();
+
+            if (windowWidth > 1400) {
+                $("#content-container").addClass('container');
+                $("#content-container").removeClass('container-fluid');
+            } else {
+                $("#content-container").removeClass('container');
+                $("#content-container").addClass('container-fluid');
+            };
+        };
+        
+        var adjust_bio_heights = function() {
+            var windowWidth = $( window ).width();
+
+            $(".bio-container").each(function(i, obj) {
+                if (windowWidth > 768) {
+                    ph = $(this).find(".bio-portrait").height();
+                    $(this).find(".bio-text").outerHeight(ph);
+                } else {
+                    $(this).find(".bio-text").outerHeight("auto");
+                }
+            });
         };
         
         var apply_readmore = function() {
@@ -279,16 +306,22 @@
         });
         
         $( document ).ready(function() {
-            var windowWidth = $( window ).width();
-            var windowHeight = $( window ).height();
-            
-            $( window ).scroll(fade_header)
-                       .resize(fade_header)
-                       .resize(apply_readmore);
-        
+            fade_header();
+            fluidize_container();
+
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
-            
+                        
+            $( window ).scroll(fade_header)
+                       .resize(fade_header)
+                       .resize(fluidize_container)
+                       .resize(adjust_bio_heights)
+                       .resize(apply_readmore);
+
+            $(window).on("load", function() {
+                adjust_bio_heights();
+            });
+
             apply_readmore();
             
             var feed = new Instafeed({
@@ -296,46 +329,46 @@
                 userId: 2533712132,
                 accessToken: '2533712132.21213d0.fa6d5675be04485686d53eaaacaaa0af',
                 sortBy: 'most-recent',
-                template: '<a href="{{link}}"><img src="{{image}}" height=95 width=95 /></a>'
+                template: '<div class="col-md-4 col-xs-2 insta-img"><a href="{{link}}" target="_blank"><img src="{{image}}" class="img-responsive" /></a></div>'
             });
             feed.run();
             
-            var form = $("#messageForm");
-            var formMessages = $('#form-messages');
+            var form = $( "#messageForm" );
+            var formMessages = $( "#form-messages" );
             
-            $(form).validate();
+            $( form ).validate();
             
-            $(form).submit(function(event) {
+            $( form ).submit(function(event) {
                 event.preventDefault();
                   
-                var formData = $(form).serialize();
+                var formData = $( form ).serialize();
                 
                 $.ajax({
                     type: 'POST',
-                    url: $(form).attr('action'),
+                    url: $( form ).attr('action'),
                     data: formData
                 }).done(function(response) {
                     // Make sure that the formMessages div has the 'success' class.
-                    $(formMessages).removeClass('error');
-                    $(formMessages).addClass('success');
+                    $( formMessages ).removeClass('error');
+                    $( formMessages ).addClass('success');
 
                     // Set the message text.
                     $(formMessages).text(response);
 
                     // Clear the form.
-                    $('#name').val('');
-                    $('#email').val('');
-                    $('#message').val('');
+                    $( "#name" ).val('');
+                    $( "#email" ).val('');
+                    $( "#message" ).val('');
                 }).fail(function(data) {
                     // Make sure that the formMessages div has the 'error' class.
-                    $(formMessages).removeClass('success');
-                    $(formMessages).addClass('error');
+                    $( formMessages ).removeClass('success');
+                    $( formMessages ).addClass('error');
 
                     // Set the message text.
                     if (data.responseText !== '') {
-                        $(formMessages).text(data.responseText);
+                        $( formMessages ).text(data.responseText);
                     } else {
-                        $(formMessages).text('Oops! An error occured and your message could not be sent.');
+                        $( formMessages ).text('Oops! An error occured and your message could not be sent.');
                     }
                 });
             });

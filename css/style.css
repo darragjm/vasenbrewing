@@ -22,7 +22,6 @@ body {
     background-image: url(../img/bg_header.jpg);
     background-position: center center;
     height: 100px;
-    opacity: 0;
 }
 
 #header #logo {
@@ -40,15 +39,12 @@ body {
     margin-right: 7px;
 }
 
-.container {
-    max-width: 1400px;
-}
-
 .static-bg {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     overflow: hidden;
+    padding: 0 2% 30px 2%;
 }
 
 #splash {
@@ -101,14 +97,12 @@ body {
 
 #story {
     background-image: url(../img/bg_black_texture.jpg);
-    min-height: 715px;
 }
 
 #bios {
     background-image: url(../img/bg_wood_panels.jpg);
     background-size: auto;
     background-repeat: repeat;
-    min-height: 815px;
 }
 
 #bio-list {
@@ -155,9 +149,14 @@ a.list-group-item .bio-position {
     margin-top: -12px;
 }
 
+.bio-container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .bio-container-dynamic {
     display: inherit;
-    min-width: 720px;
 }
 
 .bio-container-static {
@@ -165,19 +164,11 @@ a.list-group-item .bio-position {
     margin-bottom: 30px;
 }
 
-.bio-container {
-    background-image: url(../img/bg_team_bio_text.jpg);
-    background-position: right center;
-    background-repeat: repeat-x;
-}
-
 .bio-portrait-container {
     padding: 0px;
 }
-
-.bio-portrait {
-    text-align: center;
-    vertical-align: middle;
+    
+.bio-portrait img {
 }
 
 .bio-name {
@@ -191,8 +182,10 @@ a.list-group-item .bio-position {
 }
 
 .bio-text {
-    margin-top: 10%;
-    padding-bottom: 10px;
+    background-image: url(../img/bg_team_bio_text.jpg);
+    background-position: right center;
+    background-repeat: repeat-x;
+    padding-top: 10%;
     color: white;
 }
 
@@ -201,20 +194,19 @@ a.list-group-item .bio-position {
 }
 
 .bio-bio + [data-readmore-toggle] {
-    color: #232323;
+    color: #d5d5d5;
 }
 
 #contact {
     background-image: url(../img/bg_black_texture.jpg);
     min-height: 600px;
-    padding: 0 3% 30px 3%;
 }
 
 #contact #banner {
 
 }
 
-.contact-banner {
+#contact .contact-banner {
     font-family: 'CoreCircus', sans-serif;
     font-weight: 300;
     font-size: 40px;
@@ -223,7 +215,7 @@ a.list-group-item .bio-position {
     color: #d5d5d5;
 }
 
-.contact-heading {
+#contact .contact-heading {
     font-family: 'CoreCircus', sans-serif;
     font-weight: 300;
     font-size: 24px;
@@ -232,12 +224,27 @@ a.list-group-item .bio-position {
     color: #e05953;
 }
 
-#instafeed {
+#contact #instafeed {
     max-height: 350px;
     overflow: auto;
+    margin-left: 0; /* Global overwrite! */
+    margin-right: 0; /* Global overwrite! */
 }
 
-#contact-map {
+#contact .insta-img {
+    padding: 3px;
+}
+
+#contact #form-container .form-control {
+    margin-bottom: 10px;
+}
+
+#contact #contact-map-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#contact #contact-map {
     height: 350px;
 }
 
@@ -278,25 +285,23 @@ a.list-group-item .bio-position {
     }
 }
 
-@media (max-width: 768px) {
-    #header #social {
-        display: none;
-    }
-    
-    .bio-container {
-        background-position: center bottom;
-    }
-    
+/* Below small devices */
+@media (max-width: 767px) {
     .bio-text {
-        margin-top: 30px;
-    }
-    
-    .bio-bio {
-        margin-top: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 
-@media (max-width: 992px) {
+/* Below medium devices */
+@media (max-width: 991px) {
+    #header #social {
+        display: none;
+    }
+}
+
+/* Below large devices */
+@media (max-width: 1199px) {
     .section-main-container {
         margin: 3%;
     }
@@ -314,6 +319,14 @@ a.list-group-item .bio-position {
     .section-heading {
         margin-top: 30px;
     }
+
+    #story {
+        min-height: 600px;
+    }
+    
+    #bios {
+        min-height: 600px;
+    }
     
     #bio-list {
         display: none;
@@ -330,14 +343,20 @@ a.list-group-item .bio-position {
     #bios .decorative-divider {
         display: none;
     }
-}
-
-@media (max-width: 1200px) {
-    #story {
-        min-height: 600px;
+    
+    .bio-container {
+        background-position: center bottom;
+        margin-left: auto;
+        margin-right: auto;
     }
     
-    #bios {
-        min-height: 600px;
+    .bio-bio {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 1400px;
     }
 }
