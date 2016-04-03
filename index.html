@@ -44,7 +44,7 @@
         <div class="row static-bg" id="story">
               <div class="col-lg-4">
                   <div class="section-text-container-left">
-                      <div class="section-heading">OUR STORY</div>
+                      <div class="section-heading">Our Story</div>
                       <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
                       <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
                       <p class="section-text">Hylla Resan!</p>
@@ -61,7 +61,7 @@
         <div class="row static-bg" id="bios">
             <div class="col-lg-4 col-lg-push-8">
                 <div class="section-text-container-right">
-                    <div class="section-heading">OUR TEAM</div>
+                    <div class="section-heading">Our Team</div>
                     <div class="list-group" id="bio-list">
                         <a href="" class="list-group-item" id="joey">
                             <p class="bio-name">Joey Darragh</p>
@@ -117,7 +117,7 @@
                     <div class="row" id="instafeed"></div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="contact-heading">Get In Touch</div>
                 <div id="form-container">
                     <form id="messageForm" method="post" action="mailer.php">
@@ -131,18 +131,20 @@
                 </div>
                 <div id="form-messages"></div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="contact-heading">Where to Find Us</div>
-                <div class="col-md-12 col-sm-6 col-xs-12" id="contact-map-container">
+                <div class="col-md-12" id="contact-map-container">
                     <div id="contact-map"></div>
                     <script>
                         function initMap() {
                             var myLatLng = {lat: 37.570138, lng: -77.472666};
+                            var draggable = $(window).width() >= 768;
 
                             var map = new google.maps.Map(document.getElementById('contact-map'), {
                                 center: myLatLng,
                                 zoom: 14,
                                 scrollwheel: false,
+                                draggable: draggable,
                             });
 
                             var styles = [
@@ -155,6 +157,18 @@
                             ];
 
                             map.setOptions({styles: styles});
+                            
+                            var contentString = (
+                                '<a href="https://goo.gl/maps/GwrKyvuv2xm" target="_blank">' +
+                                '<strong>Väsen Brewing Company</strong><br>' +
+                                '3331 W Moore St<br>' +
+                                'Richmond, VA 23230' +
+                                '</a>'
+                            );
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: contentString
+                            });
 
                             var image = 'img/map_marker.png';
                             var marker = new google.maps.Marker({
@@ -162,6 +176,10 @@
                                 map: map,
                                 title: 'Väsen Brewing Company',
                                 icon: image,
+                            });
+                            
+                            marker.addListener('click', function() {
+                                infowindow.open(map, marker);
                             });
 
                             google.maps.event.addDomListener(window, "resize", function() {
