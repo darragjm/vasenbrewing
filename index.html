@@ -10,9 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">    
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="node_modules/bootstrap/js/affix.js"></script>
     <script type="text/javascript" src="node_modules/instafeed.js/instafeed.min.js"></script>
     <script type="text/javascript" src="node_modules/readmore-js/readmore.min.js"></script>
     <script type="text/javascript" src="node_modules/validate.jquery.js/dist/validate.jquery.js.min.js"></script>
+    <script type="text/javascript" src="node_modules/throttle-debounce/dist/throttle-debounce.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -29,10 +31,17 @@
             </div>
         </div>
         
-        <div class="row static-bg" id="splash">
-            <div id="seal-container">
-                <div class="seal">
-                    <img src="img/vasen_seal.png" alt="">
+        <div class="row" id="splash-container">
+            <div id="splash-affix-container" data-spy="affix">
+                <div id="splash-fade-container">
+                    <div class="static-bg" id="splash">
+                        <div id="seal-container">
+                            <div class="seal">
+                                <img src="img/vasen_seal.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="static-bg" id="splash_blur"></div>
                 </div>
             </div>
         </div>
@@ -211,16 +220,24 @@
             var st = $( window ).scrollTop();
             var wh = $( window ).height();
 
+            // Fade in logo and social icons
             if (st < wh/3) {
                 $("#header").css({ 'opacity': 0, 
                                    'display': 'none' });
             } else if (st <= wh) {
-                $("#header").css({ 'opacity': (st - wh/3)/(wh*2/3),
+                $("#header").css({ 'opacity': (st-wh/3+100)/(wh*2/3),
                                    'display': 'inherit' });
             } else {
                 $("#header").css({ 'opacity': 1.0,
                                    'display': 'inherit' });
             };
+            
+            // Blur splash image
+            if (st < (wh*2/3)) {
+                $("#splash_blur").css({ 'opacity': 0 });
+            } else {
+                $("#splash_blur").css({ 'opacity': (st-wh*2/3+100)/(wh/3) });
+            }
         };
         
         var fluidize_container = function() {
@@ -262,7 +279,7 @@
                 $('.bio-bio').readmore('destroy');
                 readmore_flag = false;
             }
-        }
+        };
         
         var bio_filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit. Nullam tincidunt odio sit amet viverra rutrum. Vestibulum porta, odio non cursus pretium, lectus ligula cursus dui, sit amet condimentum ante felis eget tortor. Fusce eget est tellus. Sed consectetur leo suscipit nulla congue, ut posuere tellus volutpat. Pellentesque ultrices lacus sit amet risus aliquam condimentum.";
         
@@ -280,10 +297,10 @@
                 'jon': 'Head Brewery Scientist'
             },
             'bio': {
-                'joey': bio_filler,
-                'tony': bio_filler,
-                'nathan': "Receiving his Bachelor's degree in Entrepreneurship, Nathan has always had a desire to create and learn more about his surroundings. After college he moved from Tennessee to Colorado to chase the unknown. Following stints in the craft beer and outdoor industries he found the opportunity to be a part of a startup brewery putting both the degree and gathered knowledge to work. If you see him around Richmond say hello and get ready for an adventure.",
-                'jon': bio_filler
+                'joey': "Joey found his passion for craft beer after moving from his home state of Virginia to the Bay Area for grad school almost a decade ago. After the completing the craft beer initiate’s mandatory hop phase, he quickly found himself searching for beers with a bit more funk. California was happy to oblige and he reveled in the burgeoning farmhouse and sour beer movement that had started to grow around that time.",
+                'tony': "Born in Fairfax VA and raised in Northern Virginia. Tony spent his younger years getting into trouble and having fun. Tony received his GED and joined the army. After two tours of duty in the military as an Army Ranger, Tony worked his way into University of Colorado. He graduated with a degree in Environmental Science. Tony began work at Boulder Beer Company in packaging by putting beer bottles on the bottling line and slowly worked his way up to Brewer and Cask Manager. While working in Boulder Tony created many beers that are still made yearly. He learned everything he could about beer and the craft industry. He returned excited to come back to Virginia to show what he had learned to his east coast family and friends. Shown in his passion to create great beer and vision for his brewery is his journey. Here's to Vasen be who you are and enjoy the journey.",
+                'nathan': "Receiving his Bachelor's Degree in Entrepreneurship, Nathan has always had a desire to create and learn more about his surroundings. After college he moved from Tennessee to Colorado to chase the unknown and find inspiration outside the world he knew . Following stints in the craft beer and outdoor industries he found the opportunity to be a part of a startup brewery putting both the degree and gathered knowledge to work. Craft beer, and its ability to gather like minded people with different backgrounds were what drew him to the industry. Nathan can be found exploring most days and If you see him around Richmond say hello and get ready for an adventure.",
+                'jon': "Jon Warner grew up in northern Virginia and moved to Richmond in 2005 to finish his undergraduate studies at VCU. In Richmond, Jon discovered craft beer and began brewing at home, where he developed a love for the diverse flavors and aromas produced by Brettanomyces yeast and bacteria. After receiving his PhD from the VCU Department of Pharmacology, Jon fled academia, began a career in scientific publishing, and immediately started trying to find a way to leave that career and open a brewery. Fortunately, Jon’s childhood pals Joey and Tony soon arrived in Richmond with the same goal, making his dream possible. As a researcher, Jon studied the ways in which alcohol changes the brain and leads to excessive alcohol drinking. In the brewery, he ensures the quality of every brew and cares for the yeast that do the real work. Jon enjoys long walks at the river, searching for discs in the woods, flying internet spaceships, and jamming with his friends."
             }
         };
         
@@ -305,7 +322,7 @@
             $('#' + container_id + ' .bio-name').html(bios['name'][bio_name]);
             $('#' + container_id + ' .bio-position').html(bios['position'][bio_name]);
             $('#' + container_id + ' .bio-bio').html(bios['bio'][bio_name]);
-        }
+        };
         
         var update_dynamic_bio = function() {
             var bio_name = $(this).attr('id')
@@ -321,7 +338,7 @@
             $('.bio-container-dynamic .bio-bio').html(bios['bio'][bio_name]);
             
             return false;
-        }
+        };
         
         $(function(){
             $(".list-group-item")
@@ -336,16 +353,32 @@
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
                         
-            $( window ).scroll(fade_header)
+            $( window ).scroll($.throttle( 200, fade_header ))
                        .resize(fade_header)
                        .resize(fluidize_container)
                        .resize(adjust_bio_heights)
                        .resize(apply_readmore);
 
+            var headerHeight = function() {
+                if ($( window ).width() > 525) {
+                    return 100;
+                } else {
+                    return 80;
+                };
+            };
+            
+            $('#splash-affix-container').affix({
+                offset: {
+                    top: function() {
+                        return $('#splash-affix-container').outerHeight() - headerHeight();
+                    }
+                }
+            });
+            
             $(window).on("load", function() {
                 adjust_bio_heights();
             });
-
+            
             apply_readmore();
             
             var feed = new Instafeed({

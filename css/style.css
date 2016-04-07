@@ -11,6 +11,10 @@ body {
     background-color: #151515;
 }
 
+a {
+    color: #e05953;
+}
+
 .fixed {
     position: fixed;
     width: 100%;
@@ -18,9 +22,17 @@ body {
     z-index: 100;
 }
 
+#splash-affix-container.affix {
+    top: calc(100px - 100vh);
+    z-index: 50;
+    width: 100%;
+}
+
+#splash-affix-container.affix-top {
+    
+}
+
 #header {
-    background-image: url(../img/bg_header.jpg);
-    background-position: center center;
     height: 100px;
 }
 
@@ -47,10 +59,39 @@ body {
     padding: 0 2% 30px 2%;
 }
 
+#splash-container {
+    height: 100vh;
+}
+
+#splash-affix-container {
+    height: 100vh;
+}
+
+#splash-fade-container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
 #splash {
     height: 100vh;
     background-image: url(../img/building.jpg);
-    background-attachment: fixed;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#splash_blur {
+    height: 100vh;
+    background-image: url(../img/building_blur.jpg);
+    opacity: 0;
+    z-index: 11;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 #seal-container {
@@ -177,7 +218,7 @@ a.list-group-item .bio-position {
 
 .bio-position {
     font-weight: 700;
-    color: #b79879;
+    color: #9d9d9d;
     text-transform: uppercase;
 }
 
@@ -203,14 +244,14 @@ a.list-group-item .bio-position {
 }
 
 #contact #banner {
-
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 #contact .contact-banner {
     font-family: 'CoreCircus', sans-serif;
-    font-weight: 300;
-    font-size: 40px;
-    line-height: 3;
+    font-size: 2.7em;
+    line-height: 1.5;
     letter-spacing: -1px;
     color: #d5d5d5;
 }
@@ -237,6 +278,19 @@ a.list-group-item .bio-position {
 
 #contact #form-container .form-control {
     margin-bottom: 10px;
+}
+
+#contact #form-messages {
+    padding-top: 10px;
+    color: #d5d5d5;
+}
+
+#contact #form-messages .success {
+    color: darkgreen;
+}
+
+#contact #form-messages .error {
+    color: darkred;
 }
 
 #contact #contact-map-container {
@@ -275,6 +329,10 @@ a.list-group-item .bio-position {
         height: 80px;
     }
     
+    #splash-affix-container.affix {
+        top: calc(80px - 100vh);
+    }
+    
     .section-offset {
         height: 80px;
     }
@@ -290,6 +348,10 @@ a.list-group-item .bio-position {
     .bio-text {
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+    
+    #contact .contact-banner {
+        font-size: 2.3em;
     }
 }
 

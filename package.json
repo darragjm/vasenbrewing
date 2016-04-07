@@ -8,6 +8,7 @@
     "instafeed.js": "^1.4.1",
     "jquery": "^2.2.2",
     "readmore-js": "^2.1.0",
+    "throttle-debounce": "^0.1.1",
     "validate.jquery.js": "^0.1.1"
   },
   "devDependencies": {},
