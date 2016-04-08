@@ -22,7 +22,9 @@
         <div class="row fixed" id="header">
             <div class="col-xs-2"></div>
             <div class="col-xs-8 text-center" id="logo">
-                <img src="img/vasen_logo.png" alt="">
+                <a href="#top">
+                    <img src="img/vasen_logo.png" alt="">
+                </a>
             </div>
             <div class="col-xs-2 text-right" id="social">
                 <a href="http://www.facebook.com/vasenbrewing" target="_blank"><img src="img/facebook.png"></a>
@@ -32,15 +34,16 @@
         </div>
         
         <div class="row" id="splash-container">
+            <div id="seal-container">
+                <div class="seal">
+                    <a href="#content">
+                        <img src="img/vasen_seal.png" alt="">
+                    </a>
+                </div>
+            </div>
             <div id="splash-affix-container" data-spy="affix">
                 <div id="splash-fade-container">
-                    <div class="static-bg" id="splash">
-                        <div id="seal-container">
-                            <div class="seal">
-                                <img src="img/vasen_seal.png" alt="">
-                            </div>
-                        </div>
-                    </div>
+                    <div class="static-bg" id="splash"></div>
                     <div class="static-bg" id="splash_blur"></div>
                 </div>
             </div>
@@ -50,26 +53,30 @@
     
     <div class="container" id="content-container">
                 
-        <div class="row static-bg" id="story">
-              <div class="col-lg-4">
-                  <div class="section-text-container-left">
+        <div class="row static-bg section" id="story">
+              <div class="col-lg-5 left-side">
+                  <div class="section-text-container">
                       <div class="section-heading">Our Story</div>
-                      <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, beer is about creating and appreciating something greater than yourself. Our process is a medium through which we express ourselves and our appreciation for our surroundings. We do this in hopes of inspiring others to chase the things they love.</p>
-                      <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet diam diam. Proin vitae velit fermentum, bibendum turpis non, ultricies eros. Aliquam porttitor ex ac ligula porttitor, et rhoncus diam rhoncus. Mauris et venenatis mauris, vel hendrerit tortor. Nulla viverra, erat a cursus pulvinar, nisl velit sagittis ante, et pretium massa erat at velit.</p>
-                      <p class="section-text">Hylla Resan!</p>
+                      <p class="section-text">The Swedish word “väsen” honors our Scandinavian heritage and translates as one’s inner essence or way of being. At Väsen Brewing Company, brewing is about creating and appreciating something greater than yourself. Our beer is a medium through which we express ourselves and our appreciation for our environment. We brew to inspire others to chase the things they love.
+
+                      <p class="section-text">Väsen beers combine the experimental spirit that defines American craft beer with the rustic and funky flavors of Belgian farmhouse and sour ales. We’ve developed a distinctive brewing process that produces balanced, sessionable beers that are perfect for long days on the patio. While our barrel-aging program will let us flood Richmond with the funkiest of farmhouse ales, they’ll be complemented by a variety of saisons, wheat beers, and pale ales.</p>
+
+                      <p class="section-text">Our goal is to make unconventional ales and celebrate those who share an appreciation for the outdoors and spark positive change in their communities. As of Spring 2016, construction is proceeding rapidly at our building in Scott’s Addition and our brewhouse is in production.</p>
+
+                      <p class="section-text">See you in late 2016! Hylla Resan!</p>
                       <div class="decorative-divider"><img src="img/hr_hop_cone.png" class="img-responsive center-block"></div>
                   </div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-7 right-side">
                 <div class="section-main-container">
                     <img class="section-image img-responsive center-block" src="./img/team.jpg" alt="">
                 </div>
             </div>
         </div>
 
-        <div class="row static-bg" id="bios">
-            <div class="col-lg-4 col-lg-push-8">
-                <div class="section-text-container-right">
+        <div class="row static-bg section" id="bios">
+            <div class="col-lg-4 col-lg-push-8 right-side">
+                <div class="section-text-container center-block">
                     <div class="section-heading">Our Team</div>
                     <div class="list-group" id="bio-list">
                         <a href="" class="list-group-item" id="joey">
@@ -92,7 +99,7 @@
                     <div class="decorative-divider"><img src="img/hr_reindeer.png" class="img-responsive center-block"></div>
                 </div>
             </div>
-            <div class="col-lg-8 col-lg-pull-4">
+            <div class="col-lg-8 col-lg-pull-4 left-side">
                 <div class="section-main-container">
                     <div class="bio-container bio-container-dynamic">
                         <div class="row">
@@ -102,9 +109,9 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 bio-text section-text">
-                                <h2>
+                                <h1>
                                     <span class="bio-name">Name</span>
-                                </h2>
+                                </h1>
                                 <h5>
                                     <span class="bio-position">Position</span>
                                 </h5>
@@ -118,7 +125,7 @@
 
         <div class="row static-bg" id="contact">
             <div class="col-xs-12 text-center" id="banner">
-                <span class="contact-banner">Coming to rva in Late 2016</span>
+                <span class="contact-banner">Coming to richmond in Late 2016</span>
             </div>
             <div class="col-md-4">
                 <div class="contact-heading">Instagram</div>
@@ -160,7 +167,7 @@
                               {
                                 featureType: "all",
                                 stylers: [
-                                  { saturation: -77 }
+                                  { saturation: -90 }
                                 ]
                               }
                             ];
@@ -257,12 +264,40 @@
 
             $(".bio-container").each(function(i, obj) {
                 if (windowWidth > 768) {
-                    ph = $(this).find(".bio-portrait").height();
+                    var ph = $(this).find(".bio-portrait").height();
                     $(this).find(".bio-text").outerHeight(ph);
                 } else {
                     $(this).find(".bio-text").outerHeight("auto");
                 }
             });
+        };
+        
+        var matchHeight = function(leftElement, rightElement) {
+            var windowWidth = $( window ).width();
+            var leftHeight = $(leftElement).outerHeight();
+            var rightHeight = $(rightElement).outerHeight();
+            
+            if (leftHeight > rightHeight) {
+                var tallElement = leftElement;
+                var shortElement = rightElement;
+            } else {
+                var tallElement = rightElement;
+                var shortElement = leftElement;
+            }
+            
+            $(tallElement).css({ "margin-top": 0 });
+            
+            if (windowWidth >= 1200) {
+                var newMargin = Math.abs(leftHeight - rightHeight) / 2;
+                $(shortElement).css({ "margin-top": newMargin });                    
+            } else {
+                $(shortElement).css({ "margin-top": 0 });
+            };
+        };
+        
+        var matchAllHeights = function() {
+            matchHeight($("#story .left-side"), $("#story .right-side"));
+            matchHeight($("#bios .left-side"), $("#bios .right-side"));
         };
         
         var readmore_flag = false;
@@ -271,7 +306,7 @@
             if ($( window ).width() < 768) {
                 if (readmore_flag != true) {
                     $('.bio-bio').readmore({
-                        collapsedHeight: 40
+                        collapsedHeight: 42
                     });
                 };
                 readmore_flag = true;
@@ -297,8 +332,8 @@
                 'jon': 'Head Brewery Scientist'
             },
             'bio': {
-                'joey': "Joey found his passion for craft beer after moving from his home state of Virginia to the Bay Area for grad school almost a decade ago. After the completing the craft beer initiate’s mandatory hop phase, he quickly found himself searching for beers with a bit more funk. California was happy to oblige and he reveled in the burgeoning farmhouse and sour beer movement that had started to grow around that time.",
-                'tony': "Born in Fairfax VA and raised in Northern Virginia. Tony spent his younger years getting into trouble and having fun. Tony received his GED and joined the army. After two tours of duty in the military as an Army Ranger, Tony worked his way into University of Colorado. He graduated with a degree in Environmental Science. Tony began work at Boulder Beer Company in packaging by putting beer bottles on the bottling line and slowly worked his way up to Brewer and Cask Manager. While working in Boulder Tony created many beers that are still made yearly. He learned everything he could about beer and the craft industry. He returned excited to come back to Virginia to show what he had learned to his east coast family and friends. Shown in his passion to create great beer and vision for his brewery is his journey. Here's to Vasen be who you are and enjoy the journey.",
+                'joey': "Joey found his passion for craft beer after moving from his home state of Virginia to the Bay Area for grad school almost a decade ago. After completing the craft beer initiate’s mandatory hop phase, he quickly found himself searching for beers with a bit more funk and nuance. California was happy to oblige and he reveled in the burgeoning farmhouse and sour beer movement that had started to grow around that time.",
+                'tony': "Raised in Northern Virginia, Tony spent his younger years getting into trouble and having fun. After multiple tours of duty as an Army Ranger, he entered the University of Colorado and graduated with a degree in Environmental Science. Tony began work on the packaging line at Boulder Beer Company and worked his way up to the positions of Brewer and Cask Manager. During his time in Boulder, Tony grew his expertise in the craft beer industry and created beers that are still offered today. In 2015, he returned to Virginia to share his passion for beer with his family and friends on the East Coast.",
                 'nathan': "Receiving his Bachelor's Degree in Entrepreneurship, Nathan has always had a desire to create and learn more about his surroundings. After college he moved from Tennessee to Colorado to chase the unknown and find inspiration outside the world he knew . Following stints in the craft beer and outdoor industries he found the opportunity to be a part of a startup brewery putting both the degree and gathered knowledge to work. Craft beer, and its ability to gather like minded people with different backgrounds were what drew him to the industry. Nathan can be found exploring most days and If you see him around Richmond say hello and get ready for an adventure.",
                 'jon': "Jon Warner grew up in northern Virginia and moved to Richmond in 2005 to finish his undergraduate studies at VCU. In Richmond, Jon discovered craft beer and began brewing at home, where he developed a love for the diverse flavors and aromas produced by Brettanomyces yeast and bacteria. After receiving his PhD from the VCU Department of Pharmacology, Jon fled academia, began a career in scientific publishing, and immediately started trying to find a way to leave that career and open a brewery. Fortunately, Jon’s childhood pals Joey and Tony soon arrived in Richmond with the same goal, making his dream possible. As a researcher, Jon studied the ways in which alcohol changes the brain and leads to excessive alcohol drinking. In the brewery, he ensures the quality of every brew and cares for the yeast that do the real work. Jon enjoys long walks at the river, searching for discs in the woods, flying internet spaceships, and jamming with his friends."
             }
@@ -353,14 +388,16 @@
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
                         
-            $( window ).scroll($.throttle( 200, fade_header ))
-                       .resize(fade_header)
-                       .resize(fluidize_container)
-                       .resize(adjust_bio_heights)
-                       .resize(apply_readmore);
-
+            $( window )
+                .scroll($.throttle( 200, fade_header ))
+                .resize(fade_header)
+                .resize(fluidize_container)
+                .resize(adjust_bio_heights)
+                .resize(matchAllHeights)
+                .resize(apply_readmore);
+            
             var headerHeight = function() {
-                if ($( window ).width() > 525) {
+                if ($( window ).width() > 767) {
                     return 100;
                 } else {
                     return 80;
@@ -375,8 +412,23 @@
                 }
             });
             
+            $("a[href='#top']").click(function() {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                return false;
+            });
+            
+            var splashHeight = function() {
+                return $( "#splash-container" ).height() - headerHeight();
+            };
+            
+            $("a[href='#content']").click(function() {
+                $("html, body").animate({ scrollTop: splashHeight() }, "slow");
+                return false;
+            });
+            
             $(window).on("load", function() {
                 adjust_bio_heights();
+                matchAllHeights();
             });
             
             apply_readmore();
