@@ -23,6 +23,10 @@ a {
     z-index: 100;
 }
 
+#splash-affix-container {
+    transform: translateZ(0);
+}
+
 #splash-affix-container.affix {
     top: calc(100px - 100vh);
     z-index: 50;
@@ -98,6 +102,14 @@ a {
 #seal-container {
     position: absolute;
     top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 12;
+}
+
+#hint-container {
+    position: absolute;
+    top: 80%;
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 12;
@@ -292,11 +304,11 @@ a.list-group-item .bio-position {
     color: #d5d5d5;
 }
 
-#contact #form-messages .success {
+#contact #form-messages.success {
     color: darkgreen;
 }
 
-#contact #form-messages .error {
+#contact #form-messages.error {
     color: darkred;
 }
 
