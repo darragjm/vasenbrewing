@@ -339,6 +339,7 @@ a.list-group-item .bio-position {
 
 .footer-text {
     margin: 0 15px 0 15px;
+    white-space: nowrap;
 }
 
 /* RESPONSIVE CSS--------------------------------------------------------------- */
