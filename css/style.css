@@ -234,10 +234,11 @@ a.list-group-item .bio-position {
     background-size: cover;
     padding: 2% 20px 0px 20px;
     color: white;
+    font-size: 15px;
 }
 
 .bio-bio {
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 .bio-bio + [data-readmore-toggle] {
@@ -406,10 +407,6 @@ a.list-group-item .bio-position {
         background-position: center bottom;
         margin-left: auto;
         margin-right: auto;
-    }
-    
-    .bio-bio {
-        margin-top: 10px;
     }
     
     #contact .contact-banner {
