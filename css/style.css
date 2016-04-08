@@ -103,15 +103,15 @@ a {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 12;
 }
 
 #hint-container {
     position: absolute;
-    top: 80%;
+    bottom: 17%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 12;
 }
 
