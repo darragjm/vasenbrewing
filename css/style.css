@@ -138,6 +138,10 @@ a {
     background-image: url(../img/bg_black_texture.jpg);
 }
 
+#story .section-text-container {
+    padding-left: 20px;
+}
+
 #bios {
     background-image: url(../img/bg_wood_panels.jpg);
     background-size: auto;
@@ -367,6 +371,10 @@ a.list-group-item .bio-position {
 
     #story {
         min-height: 600px;
+    }
+
+    #story .section-text-container {
+        padding-left: 0px;
     }
     
     #bios {
