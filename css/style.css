@@ -337,6 +337,11 @@ a.list-group-item .bio-position {
     margin-right: 7px;
 }
 
+#footer-privacy {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
 .footer-text {
     margin: 0 15px 0 15px;
     white-space: nowrap;
