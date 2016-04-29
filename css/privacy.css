@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'CoreCircus';
+  src: url('../font/core-circus/CoreCircus.eot'); /* IE9 Compat Modes */
+  src: url('../font/core-circus/CoreCircus.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/core-circus/CoreCircus.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/core-circus/CoreCircus.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
 body {
     font-family: 'Raleway', sans-serif;
     background-color: #151515;
@@ -7,4 +15,22 @@ body {
 
 a {
     color: #e05953;
+}
+
+#seal {
+    margin: 30px;
+}
+
+#content {
+    padding: 0 5px 0 5px;
+}
+
+h1 {
+    font-family: 'CoreCircus', sans-serif;
+}
+
+@media (min-width: 800px) {
+    .container {
+        width: 800px;
+    }
 }

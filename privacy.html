@@ -23,10 +23,14 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="content-container">
 
-        <div class="row">
-            <h1>V&auml;sen Brewing Company Privacy Policy</h1>
+        <div class="row" id="seal">
+            <center><a href="index.html"><img src="img/vasen_seal.png" class="img-responsive"></a></center>
+        </div>
+        
+        <div class="row" id="content">
+            <center><h1>V&auml;sen Brewing Company Privacy Policy</h1></center>
             
             <br />
 
@@ -82,5 +86,24 @@
             <p>Last Edited on 2016-04-12</p>
         </div>
     </div>
+    <script>
+        var fluidize_container = function() {
+            var windowWidth = $( window ).width();
+
+            if (windowWidth > 800) {
+                $("#content-container").addClass('container');
+                $("#content-container").removeClass('container-fluid');
+            } else {
+                $("#content-container").removeClass('container');
+                $("#content-container").addClass('container-fluid');
+            };
+        };
+        
+        $( document ).ready(function() {
+            fluidize_container();
+            
+            $( window ).resize(fluidize_container);
+        }
+    </script>
 </body>
 </html>
