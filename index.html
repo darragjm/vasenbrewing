@@ -48,13 +48,15 @@
     <div class="container-fluid">
 
         <div class="row fixed" id="header">
-            <div class="col-xs-2"></div>
-            <div class="col-xs-8 text-center" id="logo">
+            <div class="col-xs-2 col-sm-4"></div>
+            <div class="col-xs-8 col-sm-4 text-center" id="logo">
                 <a href="#top">
                     <img src="img/vasen_logo.png" alt="">
                 </a>
             </div>
-            <div class="col-xs-2 text-right" id="social">
+            <div class="col-xs-2 col-sm-4 text-right" id="social">
+                <a href="https://store.vasenbrewing.com" target="_blank"><span id="store-container"><span id="store-text"><img src="img/store_text.png"></span><img src="img/store.png"></span></a>
+                <span id="social-divider"><img src="img/social_divider.png"></span>
                 <a href="http://www.facebook.com/vasenbrewing" target="_blank"><img src="img/facebook.png"></a>
                 <a href="http://www.instagram.com/vasenbrewing" target="_blank"><img src="img/instagram.png"></a>
                 <a href="http://www.twitter.com/vasenbrewing" target="_blank"><img src="img/twitter.png"></a>
@@ -429,9 +431,10 @@
             fade_header();
             fluidize_container();
 
+            $("#store-text").css('display', 'none');
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
-                        
+            
             $( window )
                 .scroll($.throttle( 200, fade_header ))
                 .resize(fade_header)
@@ -455,6 +458,14 @@
                     }
                 }
             });
+            
+            $("#store-container").hover(
+                function() {
+                    $("#store-text").css('display', 'inherit');
+                }, function() {
+                    $("#store-text").css('display', 'none');
+                }
+            );
             
             $("a[href='#top']").click(function() {
                 $("html, body").animate({ scrollTop: 0 }, "slow");

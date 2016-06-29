@@ -59,6 +59,11 @@ a {
     margin-right: 7px;
 }
 
+#header #social-divider {
+    margin-left: 23px;
+    margin-right: 23px;
+}
+
 .static-bg {
     background-size: cover;
     background-position: center center;
