@@ -162,7 +162,7 @@
 
         <div class="row static-bg" id="contact">
             <div class="col-xs-12 text-center" id="banner">
-                <span class="contact-banner">Coming to richmond in Early 2017</span>
+                <span class="contact-banner">Coming to richmond in Summer 2017</span>
             </div>
             <div class="col-md-4">
                 <div class="contact-heading">Instagram</div>
@@ -421,6 +421,14 @@
             return false;
         };
         
+        var store_visibility = function() {
+            if ($( window ).width() < 768) {
+                return 'none';
+            } else {
+                return 'inherit';
+            }
+        };
+        
         $(function(){
             $(".list-group-item")
                 .hover(update_dynamic_bio)
@@ -431,7 +439,7 @@
             fade_header();
             fluidize_container();
 
-            $("#store-text").css('display', 'none');
+            $("#store-text").css('display', store_visibility());
             $(".list-group-item").each(create_static_bio);
             $("#joey").mouseenter();
             
@@ -439,6 +447,7 @@
                 .scroll($.throttle( 200, fade_header ))
                 .resize(fade_header)
                 .resize(fluidize_container)
+                .resize(store_visibility)
                 .resize(adjust_bio_heights)
                 .resize(matchAllHeights)
                 .resize(apply_readmore);
@@ -463,7 +472,7 @@
                 function() {
                     $("#store-text").css('display', 'inherit');
                 }, function() {
-                    $("#store-text").css('display', 'none');
+                    $("#store-text").css('display', store_visibility());
                 }
             );
             
